@@ -1,6 +1,7 @@
 <template>
-  <footer class="NavFooterWarp">
-    <div>{{msg}}</div>
+  <!-- Footer -->
+  <footer id="footer">
+    footer
   </footer>
 </template>
 <script>

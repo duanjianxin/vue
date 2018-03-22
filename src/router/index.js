@@ -1,26 +1,23 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Count from "@/components/count";
 import Home from "@/views/Home";
+import Search from "@/views/Search";
 
 Vue.use(Router);
 
 export default new Router({
   routes: [
     {
+      // 首页
       path: "/",
       name: "Home",
       component: Home
     },
-    // {
-    //   path: "/hellowrld",
-    //   name: "HelloWorld",
-    //   component: HelloWorld
-    // },
     {
-      path: "/count",
-      name: "Count",
-      component: Count
+      // 搜索页
+      path: "/search",
+      name: "Search",
+      component: Search
     }
   ]
 });
