@@ -4,17 +4,17 @@
       <div class="search-hearder">
         <div class="header-left">
           <span class="search-icon"></span>
-          <input type="search" id="result-search" autocomplete="off" class="search-input" :placeholder="hotWords.defaultWord" />
-          <span class="search-clear result-search-clear none"></span>
+          <input type="search" id="result-search" autocomplete="off" class="search-input" :placeholder="hotWords.defaultWord"   v-model="hotWords.searchValue" @input="changeSearchInput" />
+          <span class="search-clear result-search-clear none" @click='searchClear'></span>
         </div>
         <div class="header-right">
-          <span class="search-cancel result-search-cancel">取消</span>
+          <span class="search-cancel result-search-cancel">{{hotWords.search ? '取消':"搜索"}}</span>
         </div>
       </div>
       <div class="placeholder"></div>
       <div class="search-content">
         <div class="search-history-wrap" v-if="hotWords.searchHot.length>0">
-          <span class="clear-btn"></span>
+          <span class="clear-btn" @click="delSearchHot"></span>
           <h3 class="search-hot">历史记录</h3>
           <ul class="history-label-wrap">
             <li v-for="(item,index) in hotWords.searchHot " class="hot-label " :index="index " :value="item ">{{item}}</li>
@@ -37,8 +37,10 @@ export default {
     return {
       hotWords: {
         defaultWord: "请输入要搜索的商品",
+        search:true,
         // 历史记录
         searchHot: ["美妆", "四件套"],
+        searchValue:'',
         // 热门搜索
         hotwords: [
           "面膜",
@@ -56,6 +58,22 @@ export default {
         ]
       }
     };
+  },
+  methods: {
+    //清空历史记录
+    delSearchHot() {
+      this.hotWords.searchHot = [];
+    },
+    searchClear(){
+      this.hotWords.searchValue='';
+    },
+    //搜索改变时
+    changeSearchInput(){
+this.hotWords.search=false;
+      console.log(
+        this.hotWords.searchValue
+      )
+    },
   }
 };
 </script>
