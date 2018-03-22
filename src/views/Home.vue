@@ -1,9 +1,13 @@
 <template>
-  <h1>home</h1>
+  <div>
+    <Search></Search>
+    <h1>{{msg}}</h1>
+  </div>
 </template>
 <script>
-import NavHeader from "@/components/NavHeader";
+import Search from "@/components/Search";
 import NavFooter from "@/components/NavFooter";
+import "@/util/Adaptation.js";
 export default {
   data() {
     return {
@@ -12,7 +16,7 @@ export default {
   },
   //   组件
   components: {
-    NavHeader,
+    Search,
     NavFooter
   }
 };

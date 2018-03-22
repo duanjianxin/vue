@@ -4,11 +4,11 @@
       <div class="search-hearder">
         <div class="header-left">
           <span class="search-icon"></span>
-          <input type="search" id="result-search" autocomplete="off" class="search-input" :placeholder="hotWords.defaultWord"   v-model="hotWords.searchValue" @input="changeSearchInput" />
-          <span class="search-clear result-search-clear none" @click='searchClear'></span>
+          <input type="search" id="result-search" autocomplete="off" class="search-input" :placeholder="hotWords.defaultWord" v-model="hotWords.searchValue" @input="changeSearchInput" />
+          <span class="search-clear result-search-clear none" @click='searchClear' v-if="hotWords.searchClear"></span>
         </div>
         <div class="header-right">
-          <span class="search-cancel result-search-cancel">{{hotWords.search ? '取消':"搜索"}}</span>
+          <span class="search-cancel result-search-cancel" @click="searchCancel">{{hotWords.searchClear ? '搜索':"取消"}}</span>
         </div>
       </div>
       <div class="placeholder"></div>
@@ -37,10 +37,11 @@ export default {
     return {
       hotWords: {
         defaultWord: "请输入要搜索的商品",
-        search:true,
+        //清除搜索按钮 false为隐藏
+        searchClear: false,
         // 历史记录
         searchHot: ["美妆", "四件套"],
-        searchValue:'',
+        searchValue: "",
         // 热门搜索
         hotwords: [
           "面膜",
@@ -64,16 +65,23 @@ export default {
     delSearchHot() {
       this.hotWords.searchHot = [];
     },
-    searchClear(){
-      this.hotWords.searchValue='';
+    // 清空搜索框
+    searchClear() {
+      this.hotWords.searchValue = "";
+      this.hotWords.searchClear = false;
     },
     //搜索改变时
-    changeSearchInput(){
-this.hotWords.search=false;
-      console.log(
-        this.hotWords.searchValue
-      )
+    changeSearchInput() {
+      this.hotWords.searchClear = true;
     },
+    // 点击取消回到首页
+    searchCancel() {
+      if (this.hotWords.searchClear) {
+        alert("开始搜索");
+      } else {
+        this.$router.push({ path: "/" });
+      }
+    }
   }
 };
 </script>

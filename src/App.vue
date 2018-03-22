@@ -20,7 +20,7 @@ ol,ul{list-style:none;margin:0;padding:0;}
 blockquote,q{quotes:none;}
 blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
 table{border-collapse:collapse;border-spacing:0;}
-a{text-decoration:none;}
+a{text-decoration:none;color: #333;}
 span, div, ul, li, a {
     -moz-user-select: none;
     -webkit-user-select: none;
@@ -34,5 +34,6 @@ html, body, ul, li {
     font-family: 'microsoft yahei',Verdana,Arial,Helvetica,sans-serif;
     color: #333;
     min-height: 100%;
+    height: 100%;
 }
 </style>
