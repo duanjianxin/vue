@@ -34,6 +34,5 @@ html, body, ul, li {
     font-family: 'microsoft yahei',Verdana,Arial,Helvetica,sans-serif;
     color: #333;
     min-height: 100%;
-    height: 100%;
 }
 </style>
