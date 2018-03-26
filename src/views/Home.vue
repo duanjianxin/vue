@@ -6,7 +6,8 @@
     <Guarantee></Guarantee>
     <ModuleTwo></ModuleTwo>
     <ModuleOne></ModuleOne>
-    <ModuleThree ></ModuleThree>
+    <ModuleThree></ModuleThree>
+    <ReturnTop></ReturnTop>
     <h1>{{msg}}</h1>
   </div>
 </template>
@@ -19,6 +20,7 @@ import Guarantee from "@/components/Guarantee";
 import ModuleTwo from "@/components/ModuleTwo";
 import ModuleOne from "@/components/ModuleOne";
 import ModuleThree from "@/components/ModuleThree";
+import ReturnTop from "@/components/ReturnTop";
 import NavFooter from "@/components/NavFooter";
 export default {
   data() {
@@ -35,6 +37,7 @@ export default {
     ModuleTwo,
     ModuleOne,
     ModuleThree,
+    ReturnTop,
     NavFooter
   }
 };
@@ -44,5 +47,4 @@ export default {
 .clear {
   clear: left;
 }
-
 </style>
