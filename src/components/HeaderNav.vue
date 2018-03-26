@@ -6,7 +6,7 @@
           <a href="javascript:;"> 推荐</a>
         </swiper-slide>
         <swiper-slide v-for="(item,index) in sortMenu" class="content" :key="index">
-          <a href="javascript:;"> {{item.sortname}}</a>
+          <a href="javascript:;"> {{item.categoryName}}</a>
         </swiper-slide>
       </swiper>
       <span class="iconfont icon-arrow" v-bind:class="[subitemsExpanded ? 'icon-less' : 'icon-moreunfold ']" id="slide-on" v-on:click="subitemsExpanded=!subitemsExpanded"></span>
@@ -22,7 +22,7 @@
             <a>推荐</a>
           </li>
           <li class="" v-for="(item,index) in sortMenu" :key="index">
-            <a href="javascript:;"> {{item.sortname}}</a>
+            <a href="javascript:;"> {{item.categoryName}}</a>
           </li>
         </ul>
       </div>
@@ -33,40 +33,31 @@
 // require styles
 import "swiper/dist/css/swiper.css";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
+var dataJson = require("@/mockdata/home.json");
 export default {
   data() {
     return {
       swiperOption: {
         slidesPerView: 6,
         spaceBetween: 0,
-        // freeMode: true,
         pagination: {
           el: ".swiper-pagination",
           clickable: true
         }
       },
-      sortMenu: [
-        { sortname: "男装" },
-        { sortname: "女装" },
-        { sortname: "眼镜" },
-        { sortname: "配饰" },
-        { sortname: "婴童" },
-        { sortname: "鞋靴" },
-        { sortname: "运动" },
-        { sortname: "皮具" },
-        { sortname: "出行" },
-        { sortname: "个护" },
-        { sortname: "美妆" },
-        { sortname: "居家" },
-        { sortname: "厨具" },
-        { sortname: "家电" },
-        { sortname: "家装" },
-        { sortname: "数码" },
-        { sortname: "汽配" },
-        { sortname: "定制" }
-      ],
+      sortMenu: [],
       subitemsExpanded: false
     };
+  },
+  mounted() {
+    this.addData();
+  },
+  methods: {
+    addData() {
+      for (let i = 0; i < dataJson.oneLevelCategoryList.length; i++) {
+        this.sortMenu.push(dataJson.oneLevelCategoryList[i]);
+      }
+    }
   },
   components: {
     swiper,
