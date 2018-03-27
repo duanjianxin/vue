@@ -1,40 +1,40 @@
 <template>
-    <div>
-        <van-list v-model="loading" :finished="finished" @load="onLoad">
-            <div v-for="(item,index) in list" :key="index" class="module-three">
-                <a href="javascript:;" class="hidden">
-                    <div class="module-title">
-                        {{item.moduleInfo.moduleTitle}}
-                        <span>
-                            <svg class="icon module-title-icon" aria-hidden="true">
-                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-right"></use>
-                            </svg>
-                        </span>
-                    </div>
-                </a>
-                <div class="product-brand clear">
-                    <a href="javascript:;">
-                        <img v-lazy="item.moduleInfo.moduleImage" onerror="javascript:this.src='https://static.biyao.com/m/img/master/base/trans.png'">
-                        <p>
-                            <span>{{item.moduleInfo.manufacturers}}<br>{{item.moduleInfo.moduleBrand}}</span>
-                        </p>
-                    </a>
+  <div >
+    <van-list v-model="loading" :finished="finished" @load="onLoad">
+      <div v-for="(item,index) in list" :key="index" class="module-three">
+        <a href="javascript:;" class="hidden">
+          <div class="module-title">
+            {{item.moduleInfo.moduleTitle}}
+            <span>
+              <svg class="icon module-title-icon" aria-hidden="true">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-right"></use>
+              </svg>
+            </span>
+          </div>
+        </a>
+        <div class="product-brand clear">
+          <a href="javascript:;">
+            <img v-lazy="item.moduleInfo.moduleImage" onerror="javascript:this.src='https://static.biyao.com/m/img/master/base/trans.png'">
+            <p>
+              <span>{{item.moduleInfo.manufacturers}}<br>{{item.moduleInfo.moduleBrand}}</span>
+            </p>
+          </a>
 
-                </div>
-                <ul class="product-list clear">
-                    <li v-for="(moduleItem,index) in item.moduleInfo.moduleItems" :key="index">
-                        <a href="javascript:;">
-                            <img v-lazy="moduleItem.image" onerror="javascript:this.src='https://static.biyao.com/m/img/master/base/trans.png'">
-                            <dl>
-                                <dt class="escp">{{moduleItem.ext.itemName}}</dt>
-                                <dd>¥{{moduleItem.ext.itemPrice}}</dd>
-                            </dl>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </van-list>
-    </div>
+        </div>
+        <ul class="product-list clear">
+          <li v-for="(moduleItem,index) in item.moduleInfo.moduleItems" :key="index">
+            <a href="javascript:;">
+              <img v-lazy="moduleItem.image" onerror="javascript:this.src='https://static.biyao.com/m/img/master/base/trans.png'">
+              <dl>
+                <dt class="escp">{{moduleItem.ext.itemName}}</dt>
+                <dd>¥{{moduleItem.ext.itemPrice}}</dd>
+              </dl>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </van-list>
+  </div>
 </template>
 <script>
 var dataJson = require("@/mockdata/home.json");
@@ -53,10 +53,8 @@ export default {
   methods: {
     onLoad() {
       setTimeout(() => {
-        console.log(dataJson);
         for (let index = 0; index < dataJson.modules.length; index++) {
           if (dataJson.modules[index].moduleType == "3") {
-            console.log(dataJson.modules[index]);
             this.list.push(dataJson.modules[index]);
           }
         }
@@ -168,4 +166,5 @@ a.hidden {
     }
   }
 }
+
 </style>

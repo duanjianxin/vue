@@ -35,4 +35,7 @@ html, body, ul, li {
     color: #333;
     min-height: 100%;
 }
+body{
+  font-size: 0.3rem;
+}
 </style>

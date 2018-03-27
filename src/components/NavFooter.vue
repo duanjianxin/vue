@@ -1,26 +1,49 @@
 <template>
   <!-- Footer -->
-  <footer id="footer">
-    footer
-  </footer>
+  <van-tabbar v-model="active" class="footer">
+    <van-tabbar-item icon="shop" to="/">
+      <span>首页</span>
+      <template slot="icon" slot-scope="props">
+        <i class="iconfont icon-store"></i>
+      </template>
+    </van-tabbar-item>
+    <van-tabbar-item icon="chat" to="/classify">
+      <span>分类</span>
+      <template slot="icon" slot-scope="props">
+        <i class="iconfont icon-viewgallery"></i>
+      </template>
+    </van-tabbar-item>
+    <van-tabbar-item icon="records" to="/cart">
+      <span>购物车</span>
+      <template slot="icon" slot-scope="props">
+        <i class="iconfont icon-cart"></i>
+      </template>
+    </van-tabbar-item>
+    <van-tabbar-item icon="gold-coin" to="/account">
+      <span>我的</span>
+      <template slot="icon" slot-scope="props">
+        <i class="iconfont icon-account"></i>
+      </template>
+    </van-tabbar-item>
+  </van-tabbar>
 </template>
 <script>
 export default {
   data() {
     return {
-      msg: "NavFooter"
+      active: 0
     };
   }
 };
 </script>
 <style>
-footer {
+.footer {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  border-top: 1px solid #dddddd;
-  margin-top: 40px;
+  z-index: 999;
+}
+.van-tabbar-item--active {
+  color: #7f4395;
 }
 </style>

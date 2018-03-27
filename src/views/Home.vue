@@ -6,9 +6,10 @@
     <Guarantee></Guarantee>
     <ModuleTwo></ModuleTwo>
     <ModuleOne></ModuleOne>
-    <ModuleThree></ModuleThree>
+    <ModuleThree class="ModuleThree"></ModuleThree>
     <ReturnTop></ReturnTop>
-    <h1>{{msg}}</h1>
+    <div class="dropload-down"></div>
+    <NavFooter></NavFooter>
   </div>
 </template>
 <script>
@@ -46,5 +47,13 @@ export default {
 <style lang="scss" scoped="" type="text/css">
 .clear {
   clear: left;
+}
+
+.dropload-down {
+  display: block;
+  height: 1rem;
+}
+.ModuleThree {
+  display: inline-block;
 }
 </style>

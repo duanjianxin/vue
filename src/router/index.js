@@ -2,6 +2,8 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "@/views/Home";
 import Search from "@/views/Search";
+import Classify from "@/views/Classify";
+import Cart from "@/views/Cart";
 
 Vue.use(Router);
 
@@ -18,6 +20,18 @@ export default new Router({
       path: "/search",
       name: "Search",
       component: Search
+    },
+    {
+      // 分类
+      path: "/classify",
+      name: "Classify",
+      component: Classify
+    },
+    {
+      // 购物车
+      path: "/cart",
+      name: "Cart",
+      component: Cart
     }
   ]
 });

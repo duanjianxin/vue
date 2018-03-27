@@ -1,5 +1,5 @@
 <template>
-  <div class="returnTop border-1" style="opacity: 1;" @click="jump">
+  <div class="returnTop border-1" style="opacity: 1;" @click="toTop" v-if="returnTop">
     <i class="icon-back-top iconfont icon-less" aria-hidden="true"></i>
   </div>
 </template>
@@ -8,55 +8,26 @@ export default {
   data() {
     return {
       msg: "ReturnTop",
-      returnTop: false
+      returnTop: false,
+      scroll: ""
     };
   },
   methods: {
     toTop() {
       document.documentElement.scrollTop = document.body.scrollTop = 0;
     },
-    jump() {
-      // 用 class="d_jump" 添加锚点
-      let jump = document.querySelectorAll(".returnTop");
-      let total = jump.offsetTop;
-      let distance =
+    menu() {
+      this.scroll =
         document.documentElement.scrollTop || document.body.scrollTop;
-      // 平滑滚动，时长500ms，每10ms一跳，共50跳
-      let step = total / 50;
-      if (total > distance) {
-        smoothDown();
+      if (this.scroll >= "350") {
+        this.returnTop = true;
       } else {
-        let newTotal = distance - total;
-        step = newTotal / 50;
-        smoothUp();
-      }
-      function smoothDown() {
-        if (distance < total) {
-          distance += step;
-          document.body.scrollTop = distance;
-          document.documentElement.scrollTop = distance;
-          setTimeout(smoothDown, 40);
-        } else {
-          document.body.scrollTop = total;
-          document.documentElement.scrollTop = total;
-        }
-      }
-      function smoothUp() {
-        if (distance > total) {
-          distance -= step;
-          document.body.scrollTop = distance;
-          document.documentElement.scrollTop = distance;
-          setTimeout(smoothUp, 40);
-        } else {
-          document.body.scrollTop = total;
-          document.documentElement.scrollTop = total;
-        }
+        this.returnTop = false;
       }
     }
   },
   mounted() {
-    // document.querySelector(".returnTop").style.bottom = this.toBottom;
-    console.log(document.documentElement.scrollTop);
+    window.addEventListener("scroll", this.menu);
   }
 };
 </script>
