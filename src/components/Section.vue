@@ -2,10 +2,9 @@
   <div>
     <div class="section-firstCate border-right-1px">
       <ul>
-        <li v-for="(item,index) in sortMenu" class="content" :key="index">
-          <a href="javascript:;"> </a>
+        <li v-for="(item,index) in sortMenu" class="content" :key="index" :class="{'firstCate-active':item.categoryId==categoryId}">
           <router-link :to="{path:'/classify',query: {
-            categoryId: item.categoryId}}">{{item.categoryName}}</router-link>
+            categoryId: item.categoryId}}" :class="{'firstCate-activea':item.categoryId==categoryId}">{{item.categoryName}}</router-link>
         </li>
       </ul>
     </div>
@@ -59,6 +58,7 @@ export default {
   mounted() {
     this.addData();
     this.cateListData();
+    console.log(dataJson);
   },
   methods: {
     addData() {
@@ -123,6 +123,7 @@ export default {
   box-sizing: border-box;
   width: 1.81rem;
   overflow-y: auto;
+
   .escp {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -138,6 +139,12 @@ export default {
       font-size: 0.3rem;
       color: #333;
       text-align: center;
+    }
+    .firstCate-active {
+      border-left: 0.04rem solid #7f4395;
+      .firstCate-activea {
+        color: #7f4395;
+      }
     }
   }
 }
