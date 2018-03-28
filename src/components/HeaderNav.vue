@@ -2,11 +2,14 @@
   <div class="header-nav">
     <div class="nav-firstCate">
       <swiper :options="swiperOption" class="swiperOption">
-        <swiper-slide class="content nav-active">
-          <a href="javascript:;"> 推荐</a>
+        <swiper-slide class="content " :class="{'nav-active':categoryId=='all'}">
+          <router-link :to="{path:'/'}">推荐</router-link>
         </swiper-slide>
-        <swiper-slide v-for="(item,index) in sortMenu" class="content" :key="index">
-          <a href="javascript:;"> {{item.categoryName}}</a>
+        <swiper-slide v-for="(item,index) in sortMenu" class="content" :key="index" :class="{'nav-active': categoryId==item.categoryId}">
+          <router-link :to="{path:'/classify/oldClassify',query: {
+            categoryId: item.categoryId}}" :class="{'firstCate-activea':item.categoryId==categoryId}">
+            {{item.categoryName}}
+          </router-link>
         </swiper-slide>
       </swiper>
       <span class="iconfont icon-arrow" v-bind:class="[subitemsExpanded ? 'icon-less' : 'icon-moreunfold ']" id="slide-on" v-on:click="subitemsExpanded=!subitemsExpanded"></span>
@@ -27,13 +30,25 @@
         </ul>
       </div>
     </div>
+    <div class="nav-secondCate" v-if="subCategoryList.subCategoryList&&subCategoryList.subCategoryList.length>0">
+      <div style="touch-action: pan-y pinch-zoom;">
+        <ul class="">
+          <li :class="{'secondCate-active':categoryIdChildren==item.categoryId}" v-for="(item,index) in subCategoryList.subCategoryList" :key="index">
+            <router-link :to="{path:'/classify/oldClassify',query: {
+            categoryId: categoryId,Children:item.categoryId}}" :class="{'firstCate-activea':item.categoryId==categoryId}">
+              {{item.categoryName}}
+            </router-link>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
 <script>
 // require styles
 import "swiper/dist/css/swiper.css";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
-var dataJson = require("@/mockdata/home.json");
+var dataJson = require("@/mockdata/cateTabGuycateList.json");
 export default {
   data() {
     return {
@@ -46,18 +61,64 @@ export default {
         }
       },
       sortMenu: [],
-      subitemsExpanded: false
+      subCategoryList: [],
+      subitemsExpanded: false,
+      categoryId: "all",
+      categoryIdChildren: ""
     };
   },
   mounted() {
     this.addData();
+    console.log(dataJson);
+    // console.log(this.sortMenu);
   },
   methods: {
     addData() {
-      for (let i = 0; i < dataJson.oneLevelCategoryList.length; i++) {
-        this.sortMenu.push(dataJson.oneLevelCategoryList[i]);
+      for (let i = 0; i < dataJson.length; i++) {
+        this.sortMenu.push({
+          categoryName: dataJson[i].categoryName,
+          categoryId: dataJson[i].categoryId,
+          categoryType: dataJson[i].categoryType,
+          jumpType: dataJson[i].jumpType,
+          subCategoryList: dataJson[i].subCategoryList
+        });
       }
+    },
+    getParams() {
+      // 取到路由带过来的参数
+      let routerParamsCategoryId = this.$route.query.categoryId;
+      let categoryIdChildren = this.$route.query.Children;
+      // 将数据放在当前组件的数据内
+      this.categoryId = routerParamsCategoryId;
+      this.categoryIdChildren = categoryIdChildren;
+      for (let i = 0; i < dataJson.length; i++) {
+        if (routerParamsCategoryId == dataJson[i].categoryId) {
+          this.subCategoryList = dataJson[i];
+          // if (dataJson[i].subCategoryList.length > 0) {
+          //   this.subCategoryListCategoryId = [];
+          //   for (
+          //     let index = 0;
+          //     index < dataJson[i].subCategoryList.length;
+          //     index++
+          //   ) {
+          //     this.subCategoryListCategoryId.push(
+          //       dataJson[i].subCategoryList[index].categoryId
+          //     );
+          //   }
+          // }
+        }
+      }
+      console.log(this.subCategoryList);
+    },
+    // 判断子id是否属于父类
+    isCategoryId(id) {
+      // alert(this.subCategoryListCategoryId.includes(id));
+      console.log(id);
     }
+  },
+  watch: {
+    // 监测路由变化,只要变化了就调用获取路由参数方法将数据存储本组件即可
+    $route: "getParams"
   },
   components: {
     swiper,
@@ -158,6 +219,43 @@ export default {
       li._active a {
         color: #7f4395;
         border-color: #7f4395;
+      }
+    }
+  }
+
+  //
+  .nav-secondCate {
+    padding-left: 0.2rem;
+    overflow: hidden;
+    background: #f7f7f7;
+    div {
+      width: 7.3rem;
+      ul {
+        height: 0.89rem;
+        overflow: hidden;
+        li {
+          float: left;
+          padding: 0.2rem 0.2rem 0 0;
+          a {
+            display: block;
+            height: 0.46rem;
+            padding: 0 0.2rem;
+            border: 0.01rem solid #7f4395;
+            border-radius: 0.28rem;
+            line-height: 0.46rem;
+            text-align: center;
+            font-size: 0.24rem;
+            min-width: 0.73rem;
+            color: #7f4395;
+            -webkit-box-size: border-box;
+            box-size: border-box;
+          }
+        }
+        li.secondCate-active a {
+          border: 0.01rem solid transparent;
+          background: #7f4395;
+          color: #fff;
+        }
       }
     }
   }

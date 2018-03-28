@@ -7,7 +7,7 @@
         <i class="iconfont icon-store"></i>
       </template>
     </van-tabbar-item>
-    <van-tabbar-item icon="chat" to="/classify?categoryId=279">
+    <van-tabbar-item icon="chat" to="/classify/classify?categoryId=279">
       <span>分类</span>
       <template slot="icon" slot-scope="props">
         <i class="iconfont icon-viewgallery"></i>
@@ -29,11 +29,14 @@
 </template>
 <script>
 export default {
+  props: ["actives"],
   data() {
     return {
-      active: 0
+      active: this.actives
     };
-  }
+  },
+  mounted() {},
+  methods: {}
 };
 </script>
 <style>

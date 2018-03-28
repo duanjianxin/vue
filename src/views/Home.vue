@@ -9,7 +9,7 @@
     <ModuleThree class="ModuleThree"></ModuleThree>
     <ReturnTop></ReturnTop>
     <div class="dropload-down"></div>
-    <NavFooter></NavFooter>
+    <NavFooter :actives="0"></NavFooter>
   </div>
 </template>
 <script>

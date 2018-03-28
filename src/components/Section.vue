@@ -3,7 +3,7 @@
     <div class="section-firstCate border-right-1px">
       <ul>
         <li v-for="(item,index) in sortMenu" class="content" :key="index" :class="{'firstCate-active':item.categoryId==categoryId}">
-          <router-link :to="{path:'/classify',query: {
+          <router-link :to="{path:'/classify/classify',query: {
             categoryId: item.categoryId}}" :class="{'firstCate-activea':item.categoryId==categoryId}">{{item.categoryName}}</router-link>
         </li>
       </ul>

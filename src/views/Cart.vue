@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NavFooter></NavFooter>
+    <NavFooter :actives="2"></NavFooter>
   </div>
 </template>
 <script>
