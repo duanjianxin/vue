@@ -1,0 +1,190 @@
+[
+  {
+    "categoryId": "279",
+    "categoryName": "男装",
+    "categoryType": "0",
+    "jumpType": 4,
+    "subCategoryList": [
+      { "categoryId": 280, "categoryName": "男士上装" },
+      { "categoryId": 295, "categoryName": "男士外套" },
+      { "categoryId": 289, "categoryName": "男士下装" }
+    ]
+  },
+  {
+    "categoryId": "294",
+    "categoryName": "女装",
+    "categoryType": "0",
+    "jumpType": 4,
+    "subCategoryList": [
+      { "categoryId": 300, "categoryName": "女士上装" },
+      { "categoryId": 299, "categoryName": "女裙" },
+      { "categoryId": 301, "categoryName": "女士下装" }
+    ]
+  },
+  {
+    "categoryId": "122",
+    "categoryName": "眼镜",
+    "categoryType": "0",
+    "jumpType": 4,
+    "subCategoryList": []
+  },
+  {
+    "categoryId": "339",
+    "categoryName": "配饰",
+    "categoryType": "0",
+    "jumpType": 4,
+    "subCategoryList": [
+      { "categoryId": 340, "categoryName": "内衣" },
+      { "categoryId": 341, "categoryName": "袜子" },
+      { "categoryId": 342, "categoryName": "配饰" }
+    ]
+  },
+  {
+    "categoryId": "391",
+    "categoryName": "婴童",
+    "categoryType": "0",
+    "jumpType": 4,
+    "subCategoryList": [
+      { "categoryId": 392, "categoryName": "婴儿用品" },
+      { "categoryId": 410, "categoryName": "玩具床车" },
+      { "categoryId": 394, "categoryName": "童装童靴" },
+      { "categoryId": 395, "categoryName": "儿童配饰" },
+      { "categoryId": 393, "categoryName": "妈妈专区" }
+    ]
+  },
+  {
+    "categoryId": "35",
+    "categoryName": "鞋靴",
+    "categoryType": "0",
+    "jumpType": 4,
+    "subCategoryList": [
+      { "categoryId": 38, "categoryName": "女鞋" },
+      { "categoryId": 37, "categoryName": "男鞋" }
+    ]
+  },
+  {
+    "categoryId": "39",
+    "categoryName": "运动",
+    "categoryType": "0",
+    "jumpType": 4,
+    "subCategoryList": [
+      { "categoryId": 320, "categoryName": "户外鞋服" },
+      { "categoryId": 191, "categoryName": "运动服饰" },
+      { "categoryId": 40, "categoryName": "运动鞋" },
+      { "categoryId": 216, "categoryName": "运动装备" }
+    ]
+  },
+  {
+    "categoryId": "153",
+    "categoryName": "皮具",
+    "categoryType": "0",
+    "jumpType": 4,
+    "subCategoryList": [
+      { "categoryId": 245, "categoryName": "真皮配件" },
+      { "categoryId": 154, "categoryName": "男包" },
+      { "categoryId": 209, "categoryName": "女包" }
+    ]
+  },
+  {
+    "categoryId": "380",
+    "categoryName": "出行",
+    "categoryType": "0",
+    "jumpType": 4,
+    "subCategoryList": [
+      { "categoryId": 381, "categoryName": "功能箱包" },
+      { "categoryId": 382, "categoryName": "出行必备" }
+    ]
+  },
+  {
+    "categoryId": "54",
+    "categoryName": "个护",
+    "categoryType": "0",
+    "jumpType": 4,
+    "subCategoryList": []
+  },
+  {
+    "categoryId": "119",
+    "categoryName": "美妆",
+    "categoryType": "0",
+    "jumpType": 4,
+    "subCategoryList": [
+      { "categoryId": 120, "categoryName": "面部护理" },
+      { "categoryId": 477, "categoryName": "口腔护理" },
+      { "categoryId": 214, "categoryName": "香水彩妆" },
+      { "categoryId": 181, "categoryName": "洗发护发" },
+      { "categoryId": 413, "categoryName": "身体护理" }
+    ]
+  },
+  {
+    "categoryId": "355",
+    "categoryName": "居家",
+    "categoryType": "0",
+    "jumpType": 4,
+    "subCategoryList": [
+      { "categoryId": 356, "categoryName": "家纺" },
+      { "categoryId": 357, "categoryName": "生活用品" }
+    ]
+  },
+  {
+    "categoryId": "51",
+    "categoryName": "厨具",
+    "categoryType": "0",
+    "jumpType": 4,
+    "subCategoryList": [
+      { "categoryId": 187, "categoryName": "水具/茶具" },
+      { "categoryId": 186, "categoryName": "厨具" }
+    ]
+  },
+  {
+    "categoryId": "334",
+    "categoryName": "家电",
+    "categoryType": "0",
+    "jumpType": 4,
+    "subCategoryList": []
+  },
+  {
+    "categoryId": "369",
+    "categoryName": "家装",
+    "categoryType": "0",
+    "jumpType": 4,
+    "subCategoryList": [
+      { "categoryId": 371, "categoryName": "厨卫用品" },
+      { "categoryId": 370, "categoryName": "家装软饰" },
+      { "categoryId": 372, "categoryName": "五金工具" }
+    ]
+  },
+  {
+    "categoryId": "10",
+    "categoryName": "家具",
+    "categoryType": "0",
+    "jumpType": 4,
+    "subCategoryList": [
+      { "categoryId": 14, "categoryName": "卧室" },
+      { "categoryId": 15, "categoryName": "书房" },
+      { "categoryId": 13, "categoryName": "客厅" },
+      { "categoryId": 16, "categoryName": "餐厅" },
+      { "categoryId": 234, "categoryName": "儿童家具" }
+    ]
+  },
+  {
+    "categoryId": "223",
+    "categoryName": "数码",
+    "categoryType": "0",
+    "jumpType": 4,
+    "subCategoryList": []
+  },
+  {
+    "categoryId": "429",
+    "categoryName": "汽配",
+    "categoryType": "0",
+    "jumpType": 4,
+    "subCategoryList": []
+  },
+  {
+    "categoryId": "433",
+    "categoryName": "定制",
+    "categoryType": "1",
+    "jumpType": 4,
+    "subCategoryList": []
+  }
+]

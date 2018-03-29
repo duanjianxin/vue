@@ -15,8 +15,7 @@ import Account from "@/views/Account";
 Vue.use(Router);
 
 export default new Router({
-  routes: [
-    {
+  routes: [{
       // 首页
       path: "/",
       name: "Home",
@@ -33,8 +32,7 @@ export default new Router({
       path: "/classify",
       name: "Classify",
       component: Classify,
-      children: [
-        {
+      children: [{
           path: "classify",
           component: ClassifyClassify
         },

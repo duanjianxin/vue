@@ -17,13 +17,13 @@
           <span class="clear-btn" @click="delSearchHot"></span>
           <h3 class="search-hot">历史记录</h3>
           <ul class="history-label-wrap">
-            <li v-for="(item,index) in hotWords.searchHot " class="hot-label " :index="index " :value="item ">{{item}}</li>
+            <li v-for="(item,index) in hotWords.searchHot" class="hot-label " :index="index" :value="item">{{item}}</li>
           </ul>
         </div>
         <div class="search-hot-wrap">
           <h3 class="search-hot">热门搜索</h3>
           <ul class="hot-label-wrap">
-            <li v-for="(item,index) in hotWords.hotwords " class="hot-label " :index="index " :value="item ">{{item}}</li>
+            <li v-for="(item2,index2) in hotWords.hotwords " class="hot-label " :index="index2" :value="item2">{{item2}}</li>
           </ul>
         </div>
       </div>

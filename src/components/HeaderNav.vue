@@ -2,12 +2,12 @@
   <div class="header-nav">
     <div class="nav-firstCate">
       <swiper :options="swiperOption" class="swiperOption">
-        <swiper-slide class="content " :class="{'nav-active':categoryId=='all'}">
+        <swiper-slide class="content ">
           <router-link :to="{path:'/'}">推荐</router-link>
         </swiper-slide>
-        <swiper-slide v-for="(item,index) in sortMenu" class="content" :key="index" :class="{'nav-active': categoryId==item.categoryId}">
+        <swiper-slide v-for="(item,index) in sortMenu" :key="index" class="content" :class="{'nav-active':categoryName===item.categoryName}">
           <router-link :to="{path:'/classify/oldClassify',query: {
-            categoryId: item.categoryId}}" :class="{'firstCate-activea':item.categoryId==categoryId}">
+            categoryId: item.categoryId}}">
             {{item.categoryName}}
           </router-link>
         </swiper-slide>
@@ -22,7 +22,7 @@
       <div class="cate-detail">
         <ul>
           <li class="_active">
-            <a>推荐</a>
+            <router-link :to="{path:'/'}">推荐</router-link>
           </li>
           <li class="" v-for="(item,index) in sortMenu" :key="index">
             <a href="javascript:;"> {{item.categoryName}}</a>
@@ -33,9 +33,9 @@
     <div class="nav-secondCate" v-if="subCategoryList.subCategoryList&&subCategoryList.subCategoryList.length>0">
       <div style="touch-action: pan-y pinch-zoom;">
         <ul class="">
-          <li :class="{'secondCate-active':categoryIdChildren==item.categoryId}" v-for="(item,index) in subCategoryList.subCategoryList" :key="index">
+          <li v-for="(item,index) in subCategoryList.subCategoryList" :key="index" :class="classObject(item,index)">
             <router-link :to="{path:'/classify/oldClassify',query: {
-            categoryId: categoryId,Children:item.categoryId}}" :class="{'firstCate-activea':item.categoryId==categoryId}">
+            categoryId: item.categoryId}}">
               {{item.categoryName}}
             </router-link>
           </li>
@@ -63,13 +63,14 @@ export default {
       sortMenu: [],
       subCategoryList: [],
       subitemsExpanded: false,
-      categoryId: "all",
-      categoryIdChildren: ""
+      categoryId: "0", //当前路由id
+      categoryName: "" //当前类名
     };
   },
   mounted() {
     this.addData();
-    console.log(dataJson);
+    this.getParams();
+    // console.log(dataJson);
     // console.log(this.sortMenu);
   },
   methods: {
@@ -80,40 +81,37 @@ export default {
           categoryId: dataJson[i].categoryId,
           categoryType: dataJson[i].categoryType,
           jumpType: dataJson[i].jumpType,
-          subCategoryList: dataJson[i].subCategoryList
+          subCategoryList: dataJson[i].subCategoryList,
+          show: false
         });
       }
     },
     getParams() {
+      this.OldcategoryId = this.categoryId;
       // 取到路由带过来的参数
       let routerParamsCategoryId = this.$route.query.categoryId;
-      let categoryIdChildren = this.$route.query.Children;
       // 将数据放在当前组件的数据内
       this.categoryId = routerParamsCategoryId;
-      this.categoryIdChildren = categoryIdChildren;
       for (let i = 0; i < dataJson.length; i++) {
         if (routerParamsCategoryId == dataJson[i].categoryId) {
           this.subCategoryList = dataJson[i];
-          // if (dataJson[i].subCategoryList.length > 0) {
-          //   this.subCategoryListCategoryId = [];
-          //   for (
-          //     let index = 0;
-          //     index < dataJson[i].subCategoryList.length;
-          //     index++
-          //   ) {
-          //     this.subCategoryListCategoryId.push(
-          //       dataJson[i].subCategoryList[index].categoryId
-          //     );
-          //   }
-          // }
+          this.categoryName = dataJson[i].categoryName;
         }
       }
-      console.log(this.subCategoryList);
     },
-    // 判断子id是否属于父类
-    isCategoryId(id) {
-      // alert(this.subCategoryListCategoryId.includes(id));
-      console.log(id);
+    classObject(item, index) {
+      if (index >= 0) {
+        if (this.categoryId == item.categoryId) {
+          return "secondCate-active";
+        } else {
+          if (
+            index == 0 &&
+            this.categoryId == this.subCategoryList.categoryId
+          ) {
+            return "secondCate-active";
+          }
+        }
+      }
     }
   },
   watch: {
