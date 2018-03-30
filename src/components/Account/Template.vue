@@ -1,17 +1,11 @@
 <template>
-  <header>
-    <h1>logo</h1>
-    <ul>
-      <li>首页</li>
-      <li>2</li>
-    </ul>
-  </header>
+    <h1>{{msg}}</h1>
 </template>
 <script>
 export default {
   data() {
     return {
-      isCollapsed: false
+      msg: "Template"
     };
   }
 };

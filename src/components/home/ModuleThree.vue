@@ -1,8 +1,8 @@
 <template>
-  <div >
+  <div>
     <van-list v-model="loading" :finished="finished" @load="onLoad">
       <div v-for="(item,index) in list" :key="index" class="module-three">
-        <a href="javascript:;" class="hidden">
+        <router-link :to="{path:'/classify/categoryList'}" class="hidden">
           <div class="module-title">
             {{item.moduleInfo.moduleTitle}}
             <span>
@@ -11,15 +11,14 @@
               </svg>
             </span>
           </div>
-        </a>
+        </router-link>
         <div class="product-brand clear">
-          <a href="javascript:;">
+          <router-link :to="{path:'/classify/categoryList'}" class="hidden">
             <img v-lazy="item.moduleInfo.moduleImage" onerror="javascript:this.src='https://static.biyao.com/m/img/master/base/trans.png'">
             <p>
               <span>{{item.moduleInfo.manufacturers}}<br>{{item.moduleInfo.moduleBrand}}</span>
             </p>
-          </a>
-
+          </router-link>
         </div>
         <ul class="product-list clear">
           <li v-for="(moduleItem,index) in item.moduleInfo.moduleItems" :key="index">
@@ -166,5 +165,4 @@ a.hidden {
     }
   }
 }
-
 </style>

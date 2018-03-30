@@ -2,7 +2,7 @@
   <div class="main-section">
     <ul class="section-cateList">
       <li v-for="(item,index) in data" :key="index">
-        <p>{{item.categoryName}}</p>
+        <p v-if="titleShow">{{item.categoryName}}</p>
         <ul class="section-proList clear">
           <li v-for="(proList,proListindex) in item.item" :key="proListindex">
             <a href="javascript:;">
@@ -23,6 +23,7 @@
 import ReturnTop from "@/components/ReturnTop";
 var dataJson = require("@/mockdata/productList.json");
 export default {
+  props:["titleShow"],
   data() {
     return {
       msg: "CateList",

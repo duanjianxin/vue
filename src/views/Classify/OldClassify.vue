@@ -2,14 +2,14 @@
   <div>
     <Search></Search>
     <HeaderNav></HeaderNav>
-    <CateList></CateList>
+    <CateList :titleShow="true"></CateList>
     <NavFooter :actives="0"></NavFooter>
   </div>
 </template>
 <script>
 import Search from "@/components/Search";
-import HeaderNav from "@/components/HeaderNav";
-import CateList from "@/components/CateList";
+import HeaderNav from "@/components/home/HeaderNav";
+import CateList from "@/components/Classify/CateList";
 import NavFooter from "@/components/NavFooter";
 export default {
   data() {

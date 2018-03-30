@@ -1,8 +1,8 @@
 <template>
-    <router-link to="/search" class="header-search">
-        <i class="iconfont icon-search"></i>
-        <span>请输入您想要的商品</span>
-    </router-link>
+  <router-link to="/search" class="header-search">
+    <i class="iconfont icon-search"></i>
+    <span>请输入您想要的商品</span>
+  </router-link>
 </template>
 <script>
 export default {

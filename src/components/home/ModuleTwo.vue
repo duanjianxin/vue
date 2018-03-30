@@ -1,21 +1,20 @@
 <template>
   <ul class="clear">
     <li>
-      <a href="javascript:;">
+      <router-link :to="{path:'/classify/newproductList'}">
         <img src="https://bfs.biyao.com/group1/M00/30/12/rBACVFq02lCANJc-AAB39nA80OQ958.jpg" onerror="javascript:this.src='https://static.biyao.com/m/img/master/base/trans.png'">
-      </a>
+      </router-link>
     </li>
     <li>
-      <a href="javascript:;">
+      <router-link :to="{path:'/classify/newproductList'}">
         <img src="https://bfs.biyao.com/group1/M00/30/12/rBACVFq02maAGEcOAAA3_AiZdDg625.jpg" onerror="javascript:this.src='https://static.biyao.com/m/img/master/base/trans.png'">
-      </a>
+      </router-link>
     </li>
     <li>
-      <a href="javascript:;">
+      <router-link :to="{path:'/classify/newproductList'}">
         <img src="https://bfs.biyao.com/group1/M00/31/C4/rBACYVq02o2AAFxzAAAu95T5fPA018.jpg" onerror="javascript:this.src='https://static.biyao.com/m/img/master/base/trans.png'">
-      </a>
+      </router-link>
     </li>
-
   </ul>
 </template>
 <script>

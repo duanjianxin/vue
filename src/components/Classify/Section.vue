@@ -11,9 +11,9 @@
     <div class="section-cateList">
       <ul>
         <li class="cateList-first">
-          <a href="javascript:;" class="top-banner">
+          <router-link :to="{path:'/classify/middlePage'}" class="top-banner">
             <img :src="cateLists.categoryImage.imageUrl" v-if="cateLists.categoryImage" onerror="javascript:this.src='https://static.biyao.com/m/img/master/base/trans.png'">
-          </a>
+          </router-link>
           <ul>
             <li class="cateList-second" v-for="(item,index) in cateLists.subCategoryList" :key="index">
               <div class="list-hd">{{item.categoryName}}</div>
@@ -58,7 +58,7 @@ export default {
   mounted() {
     this.addData();
     this.cateListData();
-    console.log(dataJson);
+    // console.log(dataJson);
   },
   methods: {
     addData() {

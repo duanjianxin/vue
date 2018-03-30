@@ -15,12 +15,12 @@
 <script>
 import "@/util/Adaptation.js";
 import Search from "@/components/Search";
-import HeaderNav from "@/components/HeaderNav";
-import Banner from "@/components/Banner";
-import Guarantee from "@/components/Guarantee";
-import ModuleTwo from "@/components/ModuleTwo";
-import ModuleOne from "@/components/ModuleOne";
-import ModuleThree from "@/components/ModuleThree";
+import HeaderNav from "@/components/home/HeaderNav";
+import Banner from "@/components/home/Banner";
+import Guarantee from "@/components/home/Guarantee";
+import ModuleTwo from "@/components/home/ModuleTwo";
+import ModuleOne from "@/components/home/ModuleOne";
+import ModuleThree from "@/components/home/ModuleThree";
 import ReturnTop from "@/components/ReturnTop";
 import NavFooter from "@/components/NavFooter";
 export default {

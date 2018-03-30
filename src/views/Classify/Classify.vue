@@ -8,7 +8,7 @@
 </template>
 <script>
 import Search from "@/components/Search";
-import Section from "@/components/Section";
+import Section from "@/components/Classify/Section";
 import NavFooter from "@/components/NavFooter";
 export default {
   data() {

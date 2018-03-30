@@ -7,6 +7,10 @@ import Search from "@/views/Search";
 import Classify from "@/views/Classify";
 import ClassifyClassify from "@/views/Classify/Classify";
 import OldClassify from "@/views/Classify/OldClassify";
+import SuppLierHome from "@/views/Classify/SuppLierHome";
+import NewproductList from "@/views/Classify/NewproductList";
+import CategoryList from "@/views/Classify/CategoryList";
+import MiddlePage from "@/views/Classify/MiddlePage";
 // 购物车
 import Cart from "@/views/Cart";
 // 我的
@@ -15,7 +19,8 @@ import Account from "@/views/Account";
 Vue.use(Router);
 
 export default new Router({
-  routes: [{
+  routes: [
+    {
       // 首页
       path: "/",
       name: "Home",
@@ -32,7 +37,8 @@ export default new Router({
       path: "/classify",
       name: "Classify",
       component: Classify,
-      children: [{
+      children: [
+        {
           path: "classify",
           component: ClassifyClassify
         },
@@ -40,6 +46,30 @@ export default new Router({
           path: "oldClassify",
           name: "OldClassify",
           component: OldClassify
+        },
+        // 每日新品
+        {
+          path: "newproductList",
+          name: "NewproductList",
+          component: NewproductList
+        },
+        // 商家主页
+        {
+          path: "suppLierHome",
+          name: "SuppLierHome",
+          component: SuppLierHome
+        },
+        // 类别列表
+        {
+          path: "categoryList",
+          name: "CategoryList",
+          component: CategoryList
+        },
+        // 中间页
+        {
+          path: "middlePage",
+          name: "MiddlePage",
+          component: MiddlePage
         }
       ]
     },
