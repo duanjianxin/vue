@@ -19,6 +19,9 @@ export default {
       childTitle: "TOM FOSSEY  男装"
     };
   },
+  mounted() {
+    document.documentElement.scrollTop = document.body.scrollTop = 0;
+  },
   components: {
     Title,
     SupHeader,

@@ -1,0 +1,560 @@
+{
+  "categoryId": 322,
+  "imgList": [
+    {
+      "largeImg":
+        "https://bfs.biyao.com/group1/M00/2C/09/rBACW1pwU-KAR608AAEi1JR_7X0969.jpg",
+      "smallImg":
+        "https://bfs.biyao.com/group1/M00/2C/09/rBACW1pwU-KAR608AAEi1JR_7X0969.jpg"
+    },
+    {
+      "largeImg":
+        "https://bfs.biyao.com/group1/M00/2C/09/rBACW1pwU-SAJxAJAAEZdq6mnI8214.jpg",
+      "smallImg":
+        "https://bfs.biyao.com/group1/M00/2C/09/rBACW1pwU-SAJxAJAAEZdq6mnI8214.jpg"
+    },
+    {
+      "largeImg":
+        "https://bfs.biyao.com/group1/M00/2C/06/rBACYVpwU-qAcNWFAAEJD9RFRWc845.jpg",
+      "smallImg":
+        "https://bfs.biyao.com/group1/M00/2C/06/rBACYVpwU-qAcNWFAAEJD9RFRWc845.jpg"
+    },
+    {
+      "largeImg":
+        "https://bfs.biyao.com/group1/M00/2A/56/rBACVFpwU-2AUZXuAAEcriSAYqg633.jpg",
+      "smallImg":
+        "https://bfs.biyao.com/group1/M00/2A/56/rBACVFpwU-2AUZXuAAEcriSAYqg633.jpg"
+    },
+    {
+      "largeImg":
+        "https://bfs.biyao.com/group1/M00/2C/06/rBACYVpwU_KAe58lAAEKpz30w5U095.jpg",
+      "smallImg":
+        "https://bfs.biyao.com/group1/M00/2C/06/rBACYVpwU_KAe58lAAEKpz30w5U095.jpg"
+    }
+  ],
+  "isCarve": 0,
+  "isNewDetailsData": 1,
+  "isShowRedBag": 1,
+  "longProductName": "进口羊皮简约小立领夹克HC918",
+  "onSellGoodsInfo": {
+    "onsellCount": "30",
+    "recommendProducts": [
+      {
+        "groupId": "0",
+        "imageUrl":
+          "https://bfs.biyao.com/group1/M00/2F/6D/rBACVFqwyd6AXyOuAAA4lsemjPQ880.jpg",
+        "imageUrlWebp":
+          "https://bfs.biyao.com/group1/M00/2F/6D/rBACVFqwyd6AXyOuAAA4lsemjPQ880.webp",
+        "isGroupIcon": 0,
+        "isModel": "false",
+        "isRecommend": 0,
+        "isShowIcon": 0,
+        "largeImageUrl":
+          "https://bfs.biyao.com/group1/M00/31/21/rBACW1qwyJ2AHXAwAAC5Ggy3BBk262.jpg",
+        "largeImageUrlWebp":
+          "https://bfs.biyao.com/group1/M00/31/21/rBACW1qwyJ2AHXAwAAC5Ggy3BBk262.webp",
+        "price": "399",
+        "productId": "1301145103",
+        "salePoint": "高级环保仿皮革 亚光质感 手感柔软 微弹垂坠",
+        "suId": "1301145103060100001",
+        "supplierId": 130114,
+        "title": "仿皮亚光立领夹克"
+      },
+      {
+        "groupId": "0",
+        "imageUrl":
+          "https://bfs.biyao.com/group1/M00/32/8C/rBACW1q8e3-AcGzRAAA6IkssUd8332.jpg",
+        "imageUrlWebp":
+          "https://bfs.biyao.com/group1/M00/32/8C/rBACW1q8e3-AcGzRAAA6IkssUd8332.webp",
+        "isGroupIcon": 0,
+        "isModel": "false",
+        "isRecommend": 0,
+        "isShowIcon": 0,
+        "largeImageUrl":
+          "https://bfs.biyao.com/group1/M00/30/D7/rBACVFq8e4eAURH5AADt3dd1UKM559.jpg",
+        "largeImageUrlWebp":
+          "https://bfs.biyao.com/group1/M00/30/D7/rBACVFq8e4eAURH5AADt3dd1UKM559.webp",
+        "price": "639",
+        "productId": "1301145105",
+        "salePoint": "顺滑耐用拉链 进口绵羊皮 百褶设计 俏皮明媚",
+        "suId": "1301145105010100001",
+        "supplierId": 130114,
+        "title": "羊皮百褶裙"
+      },
+      {
+        "groupId": "0",
+        "imageUrl":
+          "https://bfs.biyao.com/group1/M00/31/1F/rBACYVqwyTSADU_vAAA6wYjr8k4289.jpg",
+        "imageUrlWebp":
+          "https://bfs.biyao.com/group1/M00/31/1F/rBACYVqwyTSADU_vAAA6wYjr8k4289.webp",
+        "isGroupIcon": 0,
+        "isModel": "false",
+        "isRecommend": 0,
+        "isShowIcon": 0,
+        "largeImageUrl":
+          "https://bfs.biyao.com/group1/M00/31/21/rBACW1qwyTiAXHKqAADFFC0DVrw706.jpg",
+        "largeImageUrlWebp":
+          "https://bfs.biyao.com/group1/M00/31/21/rBACW1qwyTiAXHKqAADFFC0DVrw706.webp",
+        "price": "399",
+        "productId": "1301145104",
+        "salePoint": "高级仿皮革 环保品质出品 记忆面料拼接 连帽设计",
+        "suId": "1301145104060100001",
+        "supplierId": 130114,
+        "title": "仿皮拼接连帽印花夹克"
+      },
+      {
+        "groupId": "0",
+        "imageUrl":
+          "https://bfs.biyao.com/group1/M00/30/2C/rBACYVqne12AQicKAAAy2mk4dq0947.jpg",
+        "imageUrlWebp":
+          "https://bfs.biyao.com/group1/M00/30/2C/rBACYVqne12AQicKAAAy2mk4dq0947.webp",
+        "isGroupIcon": 0,
+        "isModel": "false",
+        "isRecommend": 0,
+        "isShowIcon": 0,
+        "largeImageUrl":
+          "https://bfs.biyao.com/group1/M00/2E/7A/rBACVFqne2KARmcgAACsOzeMKV8900.jpg",
+        "largeImageUrlWebp":
+          "https://bfs.biyao.com/group1/M00/2E/7A/rBACVFqne2KARmcgAACsOzeMKV8900.webp",
+        "price": "1439",
+        "productId": "1301145102",
+        "salePoint": "进口绵羊皮 环保品质 涂层轻薄 手感柔软",
+        "suId": "1301145102060100001",
+        "supplierId": 130114,
+        "title": "羊皮小方领夹克"
+      },
+      {
+        "groupId": "0",
+        "imageUrl":
+          "https://bfs.biyao.com/group1/M00/2D/A8/rBACVFqeQhKAM-ydAABj126FZFU895.jpg",
+        "imageUrlWebp":
+          "https://bfs.biyao.com/group1/M00/2D/A8/rBACVFqeQhKAM-ydAABj126FZFU895.webp",
+        "isGroupIcon": 0,
+        "isModel": "false",
+        "isRecommend": 0,
+        "isShowIcon": 0,
+        "largeImageUrl":
+          "https://bfs.biyao.com/group1/M00/2F/59/rBACYVqeQiaAYIEeAADoqtb9vR8929.jpg",
+        "largeImageUrlWebp":
+          "https://bfs.biyao.com/group1/M00/2F/59/rBACYVqeQiaAYIEeAADoqtb9vR8929.webp",
+        "price": "399",
+        "productId": "1301145101",
+        "salePoint": "高级仿皮革 纹理清晰均匀 环保品质 撞色贴标刺绣",
+        "suId": "1301145101010100001",
+        "supplierId": 130114,
+        "title": "时尚刺绣女夹克"
+      },
+      {
+        "groupId": "0",
+        "imageUrl":
+          "https://bfs.biyao.com/group1/M00/2D/A4/rBACVFqeMDmATwjPAABLSV6REfM630.jpg",
+        "imageUrlWebp":
+          "https://bfs.biyao.com/group1/M00/2D/A4/rBACVFqeMDmATwjPAABLSV6REfM630.webp",
+        "isGroupIcon": 0,
+        "isModel": "false",
+        "isRecommend": 0,
+        "isShowIcon": 0,
+        "largeImageUrl":
+          "https://bfs.biyao.com/group1/M00/2F/66/rBACW1qeeeuADE57AADAM0_amRI296.jpg",
+        "largeImageUrlWebp":
+          "https://bfs.biyao.com/group1/M00/2F/66/rBACW1qeeeuADE57AADAM0_amRI296.webp",
+        "price": "399",
+        "productId": "1301145099",
+        "salePoint":
+          "环保仿皮与记忆面料拼接  背部饱满丝线刺绣 过肩设计 轻薄舒适",
+        "suId": "1301145099060100001",
+        "supplierId": 130114,
+        "title": "拼接刺绣夹克"
+      },
+      {
+        "groupId": "0",
+        "imageUrl":
+          "https://bfs.biyao.com/group1/M00/2D/A6/rBACVFqeOn2ALHhNAABfi_lDz90739.jpg",
+        "imageUrlWebp":
+          "https://bfs.biyao.com/group1/M00/2D/A6/rBACVFqeOn2ALHhNAABfi_lDz90739.webp",
+        "isGroupIcon": 0,
+        "isModel": "false",
+        "isRecommend": 0,
+        "isShowIcon": 0,
+        "largeImageUrl":
+          "https://bfs.biyao.com/group1/M00/2F/58/rBACYVqeOoGAJPeVAADMpJzblgo378.jpg",
+        "largeImageUrlWebp":
+          "https://bfs.biyao.com/group1/M00/2F/58/rBACYVqeOoGAJPeVAADMpJzblgo378.webp",
+        "price": "1299",
+        "productId": "1301145100",
+        "salePoint":
+          "进口绵羊皮 柔软细腻 环保品质 透气性好 时尚编织元素 前卫潮流",
+        "suId": "1301145100060100001",
+        "supplierId": 130114,
+        "title": "编织装饰女夹克"
+      },
+      {
+        "groupId": "0",
+        "imageUrl":
+          "https://bfs.biyao.com/group1/M00/2E/B4/rBACYVqWNkGAWGzkAABNAjlgtDw030.jpg",
+        "imageUrlWebp":
+          "https://bfs.biyao.com/group1/M00/2E/B4/rBACYVqWNkGAWGzkAABNAjlgtDw030.webp",
+        "isGroupIcon": 0,
+        "isModel": "false",
+        "isRecommend": 0,
+        "isShowIcon": 0,
+        "largeImageUrl":
+          "https://bfs.biyao.com/group1/M00/2E/B5/rBACW1qWNkiAOclmAAC3773CjfA331.jpg",
+        "largeImageUrlWebp":
+          "https://bfs.biyao.com/group1/M00/2E/B5/rBACW1qWNkiAOclmAAC3773CjfA331.webp",
+        "price": "359",
+        "productId": "1301145097",
+        "salePoint": "高级环保仿皮革 耐穿耐折 修身版型 展现女性柔美曲线",
+        "suId": "1301145097060100001",
+        "supplierId": 130114,
+        "title": "修身甜美夹克"
+      },
+      {
+        "groupId": "0",
+        "imageUrl":
+          "https://bfs.biyao.com/group1/M00/2E/B5/rBACW1qWNYGAIW6CAABHg2DtvJM175.jpg",
+        "imageUrlWebp":
+          "https://bfs.biyao.com/group1/M00/2E/B5/rBACW1qWNYGAIW6CAABHg2DtvJM175.webp",
+        "isGroupIcon": 0,
+        "isModel": "false",
+        "isRecommend": 0,
+        "isShowIcon": 0,
+        "largeImageUrl":
+          "https://bfs.biyao.com/group1/M00/2E/B5/rBACW1qWNYeAWVqZAADE3X-afoQ594.jpg",
+        "largeImageUrlWebp":
+          "https://bfs.biyao.com/group1/M00/2E/B5/rBACW1qWNYeAWVqZAADE3X-afoQ594.webp",
+        "price": "399",
+        "productId": "1301145098",
+        "salePoint": "高级仿皮革  环保品质 低温耐折 饱满刺绣 内衬印花",
+        "suId": "1301145098060100001",
+        "supplierId": 130114,
+        "title": "仿皮时尚刺绣夹克"
+      },
+      {
+        "groupId": "0",
+        "imageUrl":
+          "https://bfs.biyao.com/group1/M00/2D/FC/rBACW1qCqwGAHvB_AACJMA0Pfc4247.jpg",
+        "imageUrlWebp":
+          "https://bfs.biyao.com/group1/M00/2D/FC/rBACW1qCqwGAHvB_AACJMA0Pfc4247.webp",
+        "isGroupIcon": 0,
+        "isModel": "false",
+        "isRecommend": 0,
+        "isShowIcon": 0,
+        "largeImageUrl":
+          "https://bfs.biyao.com/group1/M00/2C/49/rBACVFqCq6uAVTq1AADJ5k40YR8658.jpg",
+        "largeImageUrlWebp":
+          "https://bfs.biyao.com/group1/M00/2C/49/rBACVFqCq6uAVTq1AADJ5k40YR8658.webp",
+        "price": "399",
+        "productId": "1301145095",
+        "salePoint": "高级仿皮革 环保品质出品 耐穿耐折 肩部冲孔装饰",
+        "suId": "1301145095060100001",
+        "supplierId": 130114,
+        "title": "仿皮时尚冲孔装饰夹克"
+      }
+    ],
+    "supplierID": 130114,
+    "supplierImg":
+      "https://bfs.biyao.com/group1/M00/1A/2A/rBACYVmSkTCAWbyOAAA14u-bZJA737.png",
+    "supplierName": "WARMSINCERE皮装"
+  },
+  "productDetail":
+    "<div class=\"wrap mg_t30 ie78 \">\n <div class=\"imgText-property\">\n  <dl>\n   <dt>\n    品名\n   </dt>\n   <dd>\n    进口羊皮简约小立领夹克HC918\n   </dd>\n  </dl>\n  <dl>\n   <dt>\n    颜色\n   </dt>\n   <dd>\n    黑色\n   </dd>\n  </dl>\n  <dl>\n   <dt>\n    皮料\n   </dt>\n   <dd>\n    英国进口绵羊皮，厚度为0.5-0.6mm，柔软细腻、环保工艺鞣制，不含对人体有害物质，安心穿着\n   </dd>\n  </dl>\n  <dl>\n   <dt>\n    卖点1\n   </dt>\n   <dd>\n    3cm小立领，领型舒展，服帖舒适，实用易搭，较好修饰肩颈曲线\n   </dd>\n  </dl>\n  <dl>\n   <dt>\n    卖点2\n   </dt>\n   <dd>\n    整衣大片裁剪，重在凸显羊皮天然质感，柔软垂坠，提升皮衣的附加值\n   </dd>\n  </dl>\n  <dl>\n   <dt>\n    卖点3\n   </dt>\n   <dd>\n    采用YKK亮银色金属拉链，顺滑耐用，不易故障，领袢及侧摆均使用亮银色提亮视觉\n   </dd>\n  </dl>\n  <dl>\n   <dt>\n    内衬\n   </dt>\n   <dd>\n    高品质丝棉身里，70%棉，30%丝，天然材质，触感细腻。优质化纤袖里，增强穿着舒适度\n   </dd>\n  </dl>\n  <dl>\n   <dt>\n    产地\n   </dt>\n   <dd>\n    中国大连\n   </dd>\n  </dl>\n  <dl>\n   <dt>\n    提示\n   </dt>\n   <dd>\n    皮衣穿着时若遇水淋雨，应尽最快用干绒布揩擦干净，并在阴凉通风处悬挂晾干；切忌沾染油污、香水、化妆品等\n   </dd>\n  </dl>\n </div>\n <div class=\"imgText-edit\">\n  <p><img src=\"https://bfs.biyao.com/group1/M00/2C/09/rBACW1pwVpKAJYlrAAGK3s_UqWg150.jpg\" title=\"款式6-PC端_01.jpg\"></p>\n  <p><img src=\"https://bfs.biyao.com/group1/M00/2A/56/rBACVFpwVpKAF3OhAAEiQTLb29A558.jpg\" title=\"款式6-PC端_02.jpg\"></p>\n  <p><img src=\"https://bfs.biyao.com/group1/M00/2A/56/rBACVFpwVpKAI1w8AAFJx4dKBCg760.jpg\" title=\"款式6-PC端_03.jpg\"></p>\n  <p><img src=\"https://bfs.biyao.com/group1/M00/2C/06/rBACYVpwVpKATCe4AAFtxHRQUyA879.jpg\" title=\"款式6-PC端_04.jpg\"></p>\n  <p><img src=\"https://bfs.biyao.com/group1/M00/2C/06/rBACYVpwVpKAfrHsAAIudPRSKNM259.jpg\" title=\"款式6-PC端_05.jpg\"></p>\n  <p><img src=\"https://bfs.biyao.com/group1/M00/2A/56/rBACVFpwVpOAYGS6AAF7qr2LnuQ350.jpg\" title=\"款式6-PC端_06.jpg\"></p>\n  <p><img src=\"https://bfs.biyao.com/group1/M00/2C/06/rBACYVpwVpOACgntAAGepjqHdtg801.jpg\" title=\"款式6-PC端_07.jpg\"></p>\n  <p><img src=\"https://bfs.biyao.com/group1/M00/2C/09/rBACW1pwVpOAHWVIAAFhsiAvFy8701.jpg\" title=\"款式6-PC端_08.jpg\"></p>\n  <p><img src=\"https://bfs.biyao.com/group1/M00/2C/09/rBACW1pwVpOAB2VnAADq38dE5Xg160.jpg\" title=\"款式6-PC端_09.jpg\"></p>\n  <p><img src=\"https://bfs.biyao.com/group1/M00/2C/06/rBACYVpwVpSARGq4AAFxiq_2T6A993.jpg\" title=\"款式6-PC端_10.jpg\"></p>\n  <p><img src=\"https://bfs.biyao.com/group1/M00/2A/56/rBACVFpwVpWAF7EKAAGpz8UKcNA640.jpg\" title=\"款式6-PC端_11.jpg\"></p>\n  <p><img src=\"https://bfs.biyao.com/group1/M00/2A/56/rBACVFpwVpSADkpFAAJTzIH8KoI226.jpg\" title=\"款式6-PC端_12.jpg\"></p>\n  <p><img src=\"https://bfs.biyao.com/group1/M00/2A/56/rBACVFpwVpaAPHrUAALMvInEhfA660.jpg\" title=\"款式6-PC端_13.jpg\"></p>\n  <p><img src=\"https://bfs.biyao.com/group1/M00/2C/09/rBACW1pwVpWAY3XfAAGGmyjIwgI435.jpg\" title=\"款式6-PC端_14.jpg\"></p>\n  <p><img src=\"https://bfs.biyao.com/group1/M00/2C/09/rBACW1pwVpWAU9jcAADcVlhItng282.jpg\" title=\"款式6-PC端_15.jpg\"></p>\n  <p><img src=\"https://bfs.biyao.com/group1/M00/2F/16/rBACVFqvUIKAQH_QAAD8k3eWO7w400.jpg\"></p>\n  <p><img src=\"https://bfs.biyao.com/group1/M00/2C/06/rBACYVpwVpaABdxgAAE6a6YRo6Q481.jpg\" title=\"款式6-PC端_17.jpg\"></p>\n  <p><img src=\"https://bfs.biyao.com/group1/M00/2C/09/rBACW1pwVpiAdiW7AAJ9sA5vsZ8175.jpg\" title=\"款式6-PC端_18.jpg\"></p>\n  <p><img src=\"https://bfs.biyao.com/group1/M00/31/94/rBACW1q0UeyAGo2lAAEu3GEfPHA960.jpg\"></p>\n </div>\n</div>",
+  "productId": 1301145092,
+  "productMdetail":
+    "<div class=\"txq_container\">\n <div class=\"txq_header\">\n  <div class=\"txq_item\">\n   <dl>\n    <dt>\n     品名\n    </dt>\n    <dd>\n     进口羊皮简约小立领夹克HC918\n    </dd>\n   </dl>\n  </div>\n  <div class=\"txq_item\">\n   <dl>\n    <dt>\n     颜色\n    </dt>\n    <dd>\n     黑色\n    </dd>\n   </dl>\n  </div>\n  <div class=\"txq_item\">\n   <dl>\n    <dt>\n     皮料\n    </dt>\n    <dd>\n     英国进口绵羊皮，厚度为0.5-0.6mm，柔软细腻、环保工艺鞣制，不含对人体有害物质，安心穿着\n    </dd>\n   </dl>\n  </div>\n  <div class=\"txq_item\">\n   <dl>\n    <dt>\n     卖点1\n    </dt>\n    <dd>\n     3cm小立领，领型舒展，服帖舒适，实用易搭，较好修饰肩颈曲线\n    </dd>\n   </dl>\n  </div>\n  <div class=\"txq_item\">\n   <dl>\n    <dt>\n     卖点2\n    </dt>\n    <dd>\n     整衣大片裁剪，重在凸显羊皮天然质感，柔软垂坠，提升皮衣的附加值\n    </dd>\n   </dl>\n  </div>\n  <div class=\"txq_item\">\n   <dl>\n    <dt>\n     卖点3\n    </dt>\n    <dd>\n     采用YKK亮银色金属拉链，顺滑耐用，不易故障，领袢及侧摆均使用亮银色提亮视觉\n    </dd>\n   </dl>\n  </div>\n  <div class=\"txq_item\">\n   <dl>\n    <dt>\n     内衬\n    </dt>\n    <dd>\n     高品质丝棉身里，70%棉，30%丝，天然材质，触感细腻。优质化纤袖里，增强穿着舒适度\n    </dd>\n   </dl>\n  </div>\n  <div class=\"txq_item\">\n   <dl>\n    <dt>\n     产地\n    </dt>\n    <dd>\n     中国大连\n    </dd>\n   </dl>\n  </div>\n  <div class=\"txq_item\">\n   <dl>\n    <dt>\n     提示\n    </dt>\n    <dd>\n     皮衣穿着时若遇水淋雨，应尽最快用干绒布揩擦干净，并在阴凉通风处悬挂晾干；切忌沾染油污、香水、化妆品等\n    </dd>\n   </dl>\n  </div>\n </div>\n <div class=\"txq_details\">\n  <p><img src=\"https://bfs.biyao.com/group1/M00/2C/09/rBACW1pwVqyAUJ_KAAGNe4OmJdY281.jpg\" title=\"款式6-APP端_01.jpg\"></p>\n  <p><img src=\"https://bfs.biyao.com/group1/M00/2A/56/rBACVFpwVqyAfjHcAAF628_O5dE174.jpg\" title=\"款式6-APP端_02.jpg\"></p>\n  <p><img src=\"https://bfs.biyao.com/group1/M00/2A/56/rBACVFpwVqyAND2hAAKN3feHLzI946.jpg\" title=\"款式6-APP端_03.jpg\"></p>\n  <p><img src=\"https://bfs.biyao.com/group1/M00/2C/06/rBACYVpwVq6AFG1RAAMpPM87NM4189.jpg\" title=\"款式6-APP端_04.jpg\"></p>\n  <p><img src=\"https://bfs.biyao.com/group1/M00/2C/06/rBACYVpwVqyAb3pGAAHmdUXuLik786.jpg\" title=\"款式6-APP端_05.jpg\"></p>\n  <p><img src=\"https://bfs.biyao.com/group1/M00/2C/09/rBACW1pwVq2ANCMAAAKwATJZWSc883.jpg\" title=\"款式6-APP端_06.jpg\"></p>\n  <p><img src=\"https://bfs.biyao.com/group1/M00/2C/09/rBACW1pwVq6AOlYYAAFtHvS2_ew070.jpg\" title=\"款式6-APP端_07.jpg\"></p>\n  <p><img src=\"https://bfs.biyao.com/group1/M00/2C/06/rBACYVpwVq6ACUbaAAFiM5vLOb0262.jpg\" title=\"款式6-APP端_08.jpg\"></p>\n  <p><img src=\"https://bfs.biyao.com/group1/M00/2A/56/rBACVFpwVrCAerinAAMvD4aBkY0046.jpg\" title=\"款式6-APP端_09.jpg\"></p>\n  <p><img src=\"https://bfs.biyao.com/group1/M00/2C/09/rBACW1pwVrCAPjy3AAN0MBpmlsc801.jpg\" title=\"款式6-APP端_10.jpg\"></p>\n  <p><img src=\"https://bfs.biyao.com/group1/M00/30/CB/rBACW1qvUJiARAiuAAK8kVkq-UE157.jpg\"></p>\n  <p><img src=\"https://bfs.biyao.com/group1/M00/2C/06/rBACYVpwVrGAKCLfAAJUGOjMy5A107.jpg\" title=\"款式6-APP端_12.jpg\"></p>\n  <p><img src=\"https://bfs.biyao.com/group1/M00/31/91/rBACYVq0UgGADKv-AAEr7k48z0s494.jpg\"></p>\n </div>\n</div>",
+  "productName": "羊皮简约小立领夹克",
+  "productSale": "英国进口轻涂绵羊皮 环保品质 大片裁剪提升价值 小立领服帖舒适",
+  "rasterType": -1,
+  "saleMode": 1,
+  "shelfStatus": 1,
+  "sizeDetail": [
+    {
+      "duration": 7,
+      "largeConfirmImg":
+        "https://bfs.biyao.com/group1/M00/2C/09/rBACW1pwU-KAR608AAEi1JR_7X0969.jpg",
+      "price": 1299,
+      "randerImg": [
+        "https://bfs.biyao.com/group1/M00/2C/09/rBACW1pwU-KAR608AAEi1JR_7X0969.jpg"
+      ],
+      "smallConfirmImg":
+        "https://bfs.biyao.com/group1/M00/2C/09/rBACW1pwU-KAR608AAEi1JR_7X0969_400x400.jpg",
+      "specs": [
+        {
+          "des": "黑色",
+          "name": "颜色",
+          "specsCateId": 12800,
+          "specsId": 44023
+        },
+        {
+          "des": "165/88A",
+          "name": "尺寸",
+          "specsCateId": 12801,
+          "specsId": 44024
+        }
+      ],
+      "storeStatus": 1,
+      "suId": "1301145092060100001"
+    },
+    {
+      "duration": 7,
+      "largeConfirmImg":
+        "https://bfs.biyao.com/group1/M00/2C/09/rBACW1pwU-KAR608AAEi1JR_7X0969.jpg",
+      "price": 1299,
+      "randerImg": [
+        "https://bfs.biyao.com/group1/M00/2C/09/rBACW1pwU-KAR608AAEi1JR_7X0969.jpg"
+      ],
+      "smallConfirmImg":
+        "https://bfs.biyao.com/group1/M00/2C/09/rBACW1pwU-KAR608AAEi1JR_7X0969_400x400.jpg",
+      "specs": [
+        {
+          "des": "黑色",
+          "name": "颜色",
+          "specsCateId": 12800,
+          "specsId": 44023
+        },
+        {
+          "des": "170/92A",
+          "name": "尺寸",
+          "specsCateId": 12801,
+          "specsId": 44025
+        }
+      ],
+      "storeStatus": 1,
+      "suId": "1301145092060200001"
+    },
+    {
+      "duration": 7,
+      "largeConfirmImg":
+        "https://bfs.biyao.com/group1/M00/2C/09/rBACW1pwU-KAR608AAEi1JR_7X0969.jpg",
+      "price": 1299,
+      "randerImg": [
+        "https://bfs.biyao.com/group1/M00/2C/09/rBACW1pwU-KAR608AAEi1JR_7X0969.jpg"
+      ],
+      "smallConfirmImg":
+        "https://bfs.biyao.com/group1/M00/2C/09/rBACW1pwU-KAR608AAEi1JR_7X0969_400x400.jpg",
+      "specs": [
+        {
+          "des": "黑色",
+          "name": "颜色",
+          "specsCateId": 12800,
+          "specsId": 44023
+        },
+        {
+          "des": "175/96A",
+          "name": "尺寸",
+          "specsCateId": 12801,
+          "specsId": 44026
+        }
+      ],
+      "storeStatus": 1,
+      "suId": "1301145092060300001"
+    },
+    {
+      "duration": 7,
+      "largeConfirmImg":
+        "https://bfs.biyao.com/group1/M00/2C/09/rBACW1pwU-KAR608AAEi1JR_7X0969.jpg",
+      "price": 1299,
+      "randerImg": [
+        "https://bfs.biyao.com/group1/M00/2C/09/rBACW1pwU-KAR608AAEi1JR_7X0969.jpg"
+      ],
+      "smallConfirmImg":
+        "https://bfs.biyao.com/group1/M00/2C/09/rBACW1pwU-KAR608AAEi1JR_7X0969_400x400.jpg",
+      "specs": [
+        {
+          "des": "黑色",
+          "name": "颜色",
+          "specsCateId": 12800,
+          "specsId": 44023
+        },
+        {
+          "des": "180/100A",
+          "name": "尺寸",
+          "specsCateId": 12801,
+          "specsId": 44027
+        }
+      ],
+      "storeStatus": 1,
+      "suId": "1301145092060400001"
+    },
+    {
+      "duration": 7,
+      "largeConfirmImg":
+        "https://bfs.biyao.com/group1/M00/2C/09/rBACW1pwU-KAR608AAEi1JR_7X0969.jpg",
+      "price": 1299,
+      "randerImg": [
+        "https://bfs.biyao.com/group1/M00/2C/09/rBACW1pwU-KAR608AAEi1JR_7X0969.jpg"
+      ],
+      "smallConfirmImg":
+        "https://bfs.biyao.com/group1/M00/2C/09/rBACW1pwU-KAR608AAEi1JR_7X0969_400x400.jpg",
+      "specs": [
+        {
+          "des": "黑色",
+          "name": "颜色",
+          "specsCateId": 12800,
+          "specsId": 44023
+        },
+        {
+          "des": "185/104A",
+          "name": "尺寸",
+          "specsCateId": 12801,
+          "specsId": 44028
+        }
+      ],
+      "storeStatus": 1,
+      "suId": "1301145092060500001"
+    },
+    {
+      "duration": 7,
+      "largeConfirmImg":
+        "https://bfs.biyao.com/group1/M00/2C/09/rBACW1pwU-KAR608AAEi1JR_7X0969.jpg",
+      "price": 1299,
+      "randerImg": [
+        "https://bfs.biyao.com/group1/M00/2C/09/rBACW1pwU-KAR608AAEi1JR_7X0969.jpg"
+      ],
+      "smallConfirmImg":
+        "https://bfs.biyao.com/group1/M00/2C/09/rBACW1pwU-KAR608AAEi1JR_7X0969_400x400.jpg",
+      "specs": [
+        {
+          "des": "黑色",
+          "name": "颜色",
+          "specsCateId": 12800,
+          "specsId": 44023
+        },
+        {
+          "des": "190/108A",
+          "name": "尺寸",
+          "specsCateId": 12801,
+          "specsId": 44029
+        }
+      ],
+      "storeStatus": 1,
+      "suId": "1301145092060600001"
+    }
+  ],
+  "sizeList": {
+    "facadeSpecs": [],
+    "normalSpecs": [
+      {
+        "name": "颜色",
+        "specs": [
+          {
+            "des": "黑色",
+            "specsId": 44023,
+            "specsImg": ""
+          }
+        ],
+        "specsCateId": 12800,
+        "type": 0
+      },
+      {
+        "name": "尺寸",
+        "specs": [
+          {
+            "des": "165/88A",
+            "specsId": 44024,
+            "specsImg": ""
+          },
+          {
+            "des": "170/92A",
+            "specsId": 44025,
+            "specsImg": ""
+          },
+          {
+            "des": "175/96A",
+            "specsId": 44026,
+            "specsImg": ""
+          },
+          {
+            "des": "180/100A",
+            "specsId": 44027,
+            "specsImg": ""
+          },
+          {
+            "des": "185/104A",
+            "specsId": 44028,
+            "specsImg": ""
+          },
+          {
+            "des": "190/108A",
+            "specsId": 44029,
+            "specsImg": ""
+          }
+        ],
+        "specsCateId": 12801,
+        "type": 0
+      }
+    ]
+  },
+  "sizeTableImg":
+    "https://bfs.biyao.com/group1/M00/2A/56/rBACVFpwU_6AWfipAAFSGtRDvX8550.jpg",
+  "suData": {
+    "duration": 7,
+    "largeConfirmImg":
+      "https://bfs.biyao.com/group1/M00/2C/09/rBACW1pwU-KAR608AAEi1JR_7X0969.jpg",
+    "price": 1299,
+    "randerImg": [
+      "https://bfs.biyao.com/group1/M00/2C/09/rBACW1pwU-KAR608AAEi1JR_7X0969.jpg"
+    ],
+    "smallConfirmImg":
+      "https://bfs.biyao.com/group1/M00/2C/09/rBACW1pwU-KAR608AAEi1JR_7X0969_400x400.jpg",
+    "specs": [
+      {
+        "des": "黑色",
+        "name": "颜色",
+        "specsCateId": 12800,
+        "specsId": 44023
+      },
+      {
+        "des": "165/88A",
+        "name": "尺寸",
+        "specsCateId": 12801,
+        "specsId": 44024
+      }
+    ],
+    "storeStatus": 1,
+    "suId": "1301145092060100001"
+  },
+  "supplierBackground": "COACH制造商直供",
+  "supplierInfo": {
+    "isZcwebim": 1,
+    "policy": [
+      {
+        "policyDescription":
+          "实物破损、不符、质量问题，退换货商家承担往返运费。",
+        "policyId": 0,
+        "policyName": "7天无忧退换"
+      },
+      {
+        "policyDescription": "争议可申诉，申诉成功，立即退款。",
+        "policyId": 0,
+        "policyName": "先行赔付"
+      },
+      {
+        "policyDescription":
+          "未按承诺时间发货，系统自动赔付（赔款金额为订单商品金额的30%，上限500元）。",
+        "policyId": 0,
+        "policyName": "超时赔偿"
+      },
+      {
+        "policyDescription": "运费由商家承担",
+        "policyId": 0,
+        "policyName": "顺丰包邮"
+      }
+    ],
+    "productQuality": "4.7",
+    "qualityGrade": "4.8",
+    "serviceTime": "7 x 12",
+    "servicesTel": "4000062632",
+    "storeDesc":
+      "WARMSINCERE一直为欧美顶级品牌代工高端革皮革产品，主要加工品类为真皮皮衣及小皮件等，企业服务一线国际品牌COACH、一线快时尚品牌ZARA等。在近20年的代工过程中，企业积累了优秀的供应量资源，尤其是与世界一流制革企业的共同研发等合作项目，使得企业在原材料获取方面取得了业内至高优势。\nWARMSINCERE吸收所代工品牌的皮革产品设计、版型之精华，与国内用户体验的完美结合，满足国内用户审美的经典设计、符合国内用户需求的优秀版型、均以精湛的车缝工艺表达出来，最终运用C2M模式，呈现给用户高性价比的皮革产品。",
+    "supplierId": 130114,
+    "supplierName": "WARMSINCERE皮装",
+    "urlLogo":
+      "https://bfs.biyao.com/group1/M00/1A/2A/rBACYVmSkTCAWbyOAAA14u-bZJA737.png",
+    "zcGroupid": "130114"
+  },
+  "supportAR": 0,
+  "supportTexture": 0,
+  "textureName": "",
+  "textureType": 0
+}

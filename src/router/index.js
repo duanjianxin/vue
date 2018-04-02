@@ -15,6 +15,8 @@ import MiddlePage from "@/views/Classify/MiddlePage";
 import Cart from "@/views/Cart";
 // 我的
 import Account from "@/views/Account";
+// 商品详情
+import Products from "@/views/Products";
 
 Vue.use(Router);
 
@@ -84,6 +86,12 @@ export default new Router({
       path: "/account",
       name: "Account",
       component: Account
+    },
+    {
+      // 商品详情
+      path: "/products",
+      name: "Products",
+      component: Products
     }
   ]
 });
