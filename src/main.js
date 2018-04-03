@@ -4,6 +4,8 @@ import Vue from "vue";
 import App from "./App";
 import VueRouter from "vue-router";
 import router from "./router";
+import Vuex from "vuex";
+
 import {
   Swipe,
   SwipeItem,
@@ -15,9 +17,12 @@ import {
   GoodsAction,
   GoodsActionBigBtn,
   GoodsActionMiniBtn,
-  Popup,Area
+  Popup,
+  Area
 } from "vant";
 Vue.config.productionTip = false;
+Vue.use(Vuex);
+
 import "vant/lib/vant-css/index.css";
 
 /* eslint-disable no-new */
@@ -30,7 +35,7 @@ Vue.use(GoodsAction); //商品页行动点
 Vue.use(GoodsActionBigBtn); //商品页行动点
 Vue.use(GoodsActionMiniBtn); //商品页行动点
 Vue.use(Popup); // 弹出层
-Vue.use(Area);//省市县选择组件
+Vue.use(Area); //省市县选择组件
 new Vue({
   el: "#app",
   router,

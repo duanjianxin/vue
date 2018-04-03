@@ -441,6 +441,11 @@
             "des": "黑色",
             "specsId": 44023,
             "specsImg": ""
+          },
+          {
+            "des": "白色",
+            "specsId": 44022,
+            "specsImg": ""
           }
         ],
         "specsCateId": 12800,

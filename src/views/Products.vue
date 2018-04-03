@@ -43,24 +43,20 @@
             <div class="price-duration-wrap">
               <div class="gl-price-duration-wrap">
                 <div class="gl-price">￥
-                  <span>{{data.sizeDetail[0].price}}</span>
+                  <span>{{data.suData.price}}</span>
                 </div>
 
                 <div class="gl-send-friends red-envelops-wrap">
                   <a href="javascript:;">
-                    <!-- <svg class="icon" aria-hidden="true">
-                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-xingxing"></use>
-                    </svg> -->
                     <span>送好友</span>
                   </a>
                 </div>
-
               </div>
               <div class="gl-duration-wrap">
                 <span class="gl-duration-icon">
                   <img src="https://static.biyao.com/m/img/base/produce_cycle.png?=biyao015ebc2">
                 </span>
-                <span class="gl-duration">生产周期：7天</span>
+                <span class="gl-duration">生产周期：{{data.suData.duration}}天</span>
               </div>
             </div>
           </section>
@@ -72,38 +68,34 @@
 
           <!-- 服务协议 -->
           <section class="gl-service-wrap">
-
             <ul class="gl-service-list">
               <li>
                 <i class="iconfont icon-assessedbadge"></i>
-                7天无忧退换</li>
-
+                7天无忧退换
+              </li>
               <li>
                 <i class="iconfont icon-assessedbadge"></i>
-                先行赔付</li>
-
+                先行赔付
+              </li>
               <li>
                 <i class="iconfont icon-assessedbadge"></i>
-                超时赔偿</li>
-
+                超时赔偿
+              </li>
               <li>
                 <i class="iconfont icon-assessedbadge"></i>
-                顺丰包邮</li>
-
+                顺丰包邮
+              </li>
               <li class="gl-more">
                 <i class="iconfont icon-more"></i>
-                <!-- <svg class="icon" aria-hidden="true">
-                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-forward"></use>
-                </svg> -->
               </li>
             </ul>
 
           </section>
           <!-- 已选规格 -->
-          <section class="gl-range-warp choosed-size-wrap">
+          <section class="gl-range-warp choosed-size-wrap" @click="showProduct">
             <div class="standard">
               <span>已选择：&nbsp;</span>
-              <div class="choosed-size-Exhibition">黑色，165/88A，1件</div>
+              <div class="choosed-size-Exhibition">{{selectedData.selectedColor}}，{{selectedData.selectedSize}}，{{selectedData.selectedNumb}}件</div>
             </div>
             <span class="gl-more">
               <i class="iconfont icon-more"></i>
@@ -153,13 +145,12 @@
           <div class="pro-detial" v-html="data.productMdetail">
           </div>
         </div>
-
       </div>
       <!-- 尺码对照表 -->
       <div class="size-surface-wrap" @click="sizeForm" v-if="showSizeForm">
         <div class="bg-corver-size-surface"></div>
         <div class="size-surface-img-wrap">
-          <img class="size-surface-img img-lazyload" src="https://bfs.biyao.com/group1/M00/2A/56/rBACVFpwU_6AWfipAAFSGtRDvX8550.jpg" onerror="javascript:this.src='https://static.biyao.com/m/img/base/nullpic.png'">
+          <img class="size-surface-img img-lazyload" :src="data.sizeTableImg" onerror="javascript:this.src='https://static.biyao.com/m/img/base/nullpic.png'">
         </div>
       </div>
     </div>
@@ -168,10 +159,14 @@
       <van-area :area-list="areaLists" @confirm="confirmArea" @cancel="cancelArea" />
     </van-popup>
     <ReturnTop></ReturnTop>
+    <van-popup v-model="showProducts" position="bottom">
+      <ChooseProducts v-bind:product="product" @showProduct="showProduct" :selectedData="selectedData"></ChooseProducts>
+    </van-popup>
   </div>
 </template>
 <script>
-import GoodsAction from "@/components/Products/GoodsAction ";
+import GoodsAction from "@/components/Products/GoodsAction";
+import ChooseProducts from "@/components/Products/ChooseProducts";
 import ReturnTop from "@/components/ReturnTop";
 import { Toast } from "vant";
 import areaList from "@/mockdata/area.json";
@@ -186,7 +181,18 @@ export default {
       bannerImgs: ProductsData.imgList,
       showBase: false,
       location: { city_list: "", county_list: "", province_list: "" },
-      areaLists: areaList //省市区数据
+      areaLists: areaList, //省市区数据
+      showProducts: false,
+      // 已选择的颜色数量 尺寸
+      selectedData: {
+        selectedColor: ProductsData.suData.specs[0].des,
+        selectedSize: ProductsData.suData.specs[1].des,
+        selectedNumb: 1
+      },
+      product: [
+        { sizeList: ProductsData.sizeList },
+        { suData: ProductsData.suData }
+      ]
     };
   },
   methods: {
@@ -201,9 +207,11 @@ export default {
     showBases() {
       this.showBase = !this.showBase;
     },
+    showProduct() {
+      this.showProducts = !this.showProducts;
+    },
     //定位 重新选择
     confirmArea(data) {
-      // console.log(data);
       this.location.city_list = data[0].name;
       this.location.county_list = data[1].name;
       this.location.province_list = data[2].name;
@@ -216,11 +224,11 @@ export default {
   },
   mounted() {
     // console.log(areaList);
-    console.log(this.data);
   },
   components: {
     GoodsAction,
-    ReturnTop
+    ReturnTop,
+    ChooseProducts
   }
 };
 </script>

@@ -17,6 +17,7 @@ import Cart from "@/views/Cart";
 import Account from "@/views/Account";
 // 商品详情
 import Products from "@/views/Products";
+import ChooseProducts from "@/components/Products/ChooseProducts";
 
 Vue.use(Router);
 
@@ -92,6 +93,12 @@ export default new Router({
       path: "/products",
       name: "Products",
       component: Products
+    },
+    {
+      // 商品详情
+      path: "/chooseProducts",
+      name: "ChooseProducts",
+      component: ChooseProducts
     }
   ]
 });
