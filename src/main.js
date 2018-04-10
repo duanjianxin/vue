@@ -4,8 +4,7 @@ import Vue from "vue";
 import App from "./App";
 import VueRouter from "vue-router";
 import router from "./router";
-import Vuex from "vuex";
-
+import store from "./vuex/index";
 import {
   Swipe,
   SwipeItem,
@@ -21,7 +20,6 @@ import {
   Area
 } from "vant";
 Vue.config.productionTip = false;
-Vue.use(Vuex);
 
 import "vant/lib/vant-css/index.css";
 
@@ -39,6 +37,7 @@ Vue.use(Area); //省市县选择组件
 new Vue({
   el: "#app",
   router,
+  store,
   components: { App },
   template: "<App/>"
 });

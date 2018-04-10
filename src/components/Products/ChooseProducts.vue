@@ -26,7 +26,7 @@
           <span class="lens-choosed">（已选：
             <i class="lens-choosed-s">{{selectedColor}}</i>）</span>
           <div class="Specs-list">
-            <div class="specs-detial-normalSpecs" :class="{'specs-detial-checked':selectedColor==item.des}" :id="item.specsId" v-for="(item,index) in sizeList.normalSpecs[0].specs" :key="index" @click="tabColor(item.des,item.specsId)">{{item.des}}</div>
+            <div class="specs-detial-normalSpecs" :class="{'specs-detial-checked':selectedColor==item.des}" :id="item.specsId" v-for="(item,index) in sizeList.normalSpecs[0].specs" :key="index" @click="tabColorActions({des:item.des,specsId:item.specsId})">{{item.des}}</div>
           </div>
         </div>
         <div class="choose-title-wrap">
@@ -34,18 +34,18 @@
           <span class="lens-choosed">（已选：
             <i class="lens-choosed-s">{{selectedSize}}</i>）</span>
           <div class="Specs-list">
-            <div class="specs-detial-normalSpecs" :class="{'specs-detial-checked':selectedSize==item.des}" :id="item.specsId" v-for="(item,index) in sizeList.normalSpecs[1].specs" :key="index" @click="tabSize(item.des,item.specsId)">{{item.des}}</div>
+            <div class="specs-detial-normalSpecs" :class="{'specs-detial-checked':selectedSize==item.des}" :id="item.specsId" v-for="(item,index) in sizeList.normalSpecs[1].specs" :key="index" @click="TABSIZE({des:item.des,specsId:item.specsId})">{{item.des}}</div>
           </div>
         </div>
         <!-- 选择数量 -->
         <div class="choose-num-wrap">
           <div class="choose-num-test">购买数量</div>
           <div class="contral-num">
-            <div class="count-reduce" :class="{'count-disabled':selectedNumb<=1}" @click="subtraction">
+            <div class="count-reduce" :class="{'count-disabled':selectedNumb<=1}" @click="subtractionActions">
               <span class="count-horizontal"></span>
             </div>
             <div class="buy-count">{{selectedNumb}}</div>
-            <div class="count-add" @click="addition">
+            <div class="count-add" @click="additionActions">
               <span class="count-horizontal"></span>
               <span class="count-vertical"></span>
             </div>
@@ -67,45 +67,39 @@
   </div>
 </template>
 <script>
+import { mapMutations, mapActions } from "vuex";
 export default {
-  props: ["product", "selectedData"],
+  // props: ["product", "selectedData"],
   data() {
     return {
       msg: "ChooseProducts",
-      suData: this.$props.product[1].suData,
-      sizeList: this.$props.product[0].sizeList,
+      suData: this.$store.state.products.product.suData,
+      sizeList: this.$store.state.products.product.sizeList,
       // 已选择颜色
-      selectedColor: this.$props.selectedData.selectedColor,
+      selectedColor: this.$store.state.products.selectedData.selectedColor,
       // 已选择尺寸
-      selectedSize: this.$props.selectedData.selectedSize,
+      selectedSize: this.$store.state.products.selectedData.selectedSize,
       // 已选择数量
-      selectedNumb: this.$props.selectedData.selectedNumb
+      selectedNumb: this.$store.state.products.selectedData.selectedNumb
     };
   },
   methods: {
-    tabColor(des, specsId) {
-      this.selectedColor = des;
-    },
-    tabSize(des, specsId) {
-      this.selectedSize = des;
-    },
-    // 数量加
-    addition() {
-      this.selectedNumb++;
-    },
-    // 数量减
-    subtraction() {
-      if (this.selectedNumb > 1) {
-        this.selectedNumb--;
-      }
-    },
+    // ...mapMutations(["TABCOLOR", "TABSIZE", "ADDITION", "SUBTRACTION"]),
+    ...mapActions([
+      "tabColorActions",
+      "tabSizeActions",
+      "additionActions",
+      "subtractionActions"
+    ]),
+    // 点击叉叉调用父组件方法
     closedBtn() {
       this.$emit("showProduct");
     }
   },
   mounted() {
     // console.log(this.suData);
-    console.log(this.selectedData);
+    // console.log(this.selectedData);
+    console.log(this.$store.state.products.product.suData);
   }
 };
 </script>

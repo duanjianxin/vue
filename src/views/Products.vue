@@ -43,7 +43,7 @@
             <div class="price-duration-wrap">
               <div class="gl-price-duration-wrap">
                 <div class="gl-price">￥
-                  <span>{{data.suData.price}}</span>
+                  <span>{{this.$store.state.products.price}}</span>
                 </div>
 
                 <div class="gl-send-friends red-envelops-wrap">
@@ -56,7 +56,7 @@
                 <span class="gl-duration-icon">
                   <img src="https://static.biyao.com/m/img/base/produce_cycle.png?=biyao015ebc2">
                 </span>
-                <span class="gl-duration">生产周期：{{data.suData.duration}}天</span>
+                <span class="gl-duration">生产周期：{{this.$store.state.products.duration}}天</span>
               </div>
             </div>
           </section>
@@ -95,7 +95,7 @@
           <section class="gl-range-warp choosed-size-wrap" @click="showProduct">
             <div class="standard">
               <span>已选择：&nbsp;</span>
-              <div class="choosed-size-Exhibition">{{selectedData.selectedColor}}，{{selectedData.selectedSize}}，{{selectedData.selectedNumb}}件</div>
+              <div class="choosed-size-Exhibition">{{this.$store.state.products.selectedData.selectedColor}}，{{this.$store.state.products.selectedData.selectedSize}}，{{this.$store.state.products.selectedData.selectedNumb}}件</div>
             </div>
             <span class="gl-more">
               <i class="iconfont icon-more"></i>
@@ -109,8 +109,8 @@
                 <span class="gl-location">
                   <img src="https://static.biyao.com/m/img/product/dingwei.png?=biyao0dc5b9b">
                 </span>
-                <b id="distribution-location" v-if="location.city_list!=''&&location.county_list!=''&&location.province_list!=''">
-                  {{location.city_list+location.county_list+location.province_list}}
+                <b id="distribution-location" v-if="this.$store.state.products.location.city_list!=''&&this.$store.state.products.location.county_list!=''&&this.$store.state.products.location.province_list!=''">
+                  {{this.$store.state.products.location.city_list+this.$store.state.products.location.county_list+this.$store.state.products.location.province_list}}
                 </b>
                 <b id="distribution-location" v-else>
                   广东省 深圳市 南山区
@@ -132,7 +132,6 @@
               <i class="iconfont icon-more"></i>
             </span>
           </section>
-
         </div>
         <!--  3.详情details -->
         <!-- 商品详情 -->
@@ -160,39 +159,30 @@
     </van-popup>
     <ReturnTop></ReturnTop>
     <van-popup v-model="showProducts" position="bottom">
-      <ChooseProducts v-bind:product="product" @showProduct="showProduct" :selectedData="selectedData"></ChooseProducts>
+      <ChooseProducts  @showProduct="showProduct" ></ChooseProducts>
     </van-popup>
   </div>
 </template>
 <script>
+import store from "@/vuex/index";
 import GoodsAction from "@/components/Products/GoodsAction";
 import ChooseProducts from "@/components/Products/ChooseProducts";
 import ReturnTop from "@/components/ReturnTop";
 import { Toast } from "vant";
 import areaList from "@/mockdata/area.json";
 // 商品详情
-import ProductsData from "@/mockdata/Products.json";
+// import ProductsData from "@/mockdata/Products.json";
 export default {
   data() {
     return {
       showSizeForm: false, //尺码对照表显示隐藏
       bannerIndex: 1,
-      data: ProductsData,
-      bannerImgs: ProductsData.imgList,
+      data: this.$store.state.products.productsData,
+      bannerImgs: this.$store.state.products.productsData.imgList,
       showBase: false,
       location: { city_list: "", county_list: "", province_list: "" },
       areaLists: areaList, //省市区数据
       showProducts: false,
-      // 已选择的颜色数量 尺寸
-      selectedData: {
-        selectedColor: ProductsData.suData.specs[0].des,
-        selectedSize: ProductsData.suData.specs[1].des,
-        selectedNumb: 1
-      },
-      product: [
-        { sizeList: ProductsData.sizeList },
-        { suData: ProductsData.suData }
-      ]
     };
   },
   methods: {
@@ -223,13 +213,14 @@ export default {
     }
   },
   mounted() {
-    // console.log(areaList);
+    console.log(this.$store.state.products.productsData);
   },
   components: {
     GoodsAction,
     ReturnTop,
     ChooseProducts
-  }
+  },
+  store
 };
 </script>
 
