@@ -17,7 +17,9 @@ import {
   GoodsActionBigBtn,
   GoodsActionMiniBtn,
   Popup,
-  Area
+  Area,
+  Checkbox,
+  CheckboxGroup
 } from "vant";
 Vue.config.productionTip = false;
 
@@ -34,6 +36,7 @@ Vue.use(GoodsActionBigBtn); //商品页行动点
 Vue.use(GoodsActionMiniBtn); //商品页行动点
 Vue.use(Popup); // 弹出层
 Vue.use(Area); //省市县选择组件
+Vue.use(Checkbox).use(CheckboxGroup); //Checkbox 复选框
 new Vue({
   el: "#app",
   router,

@@ -102,7 +102,7 @@
             </span>
           </section>
           <!-- 定位 -->
-          <section class="my-address" id="my-address" @click="showBases">
+          <section class="my-address" id="my-address" @click="showBasesActions">
             <div class="padding_1">
               <div class="my-send clear">
                 <b>配送至：&nbsp;</b>
@@ -154,24 +154,24 @@
       </div>
     </div>
     <GoodsAction></GoodsAction>
-    <van-popup v-model="showBase" position="bottom">
-      <van-area :area-list="areaLists" @confirm="confirmArea" @cancel="cancelArea" />
+    <van-popup v-model="$store.state.products.showBase" position="bottom">
+      <van-area :area-list="areaLists" @confirm="confirmAreaActions" @cancel="cancelAreaActions" />
     </van-popup>
     <ReturnTop></ReturnTop>
     <van-popup v-model="showProducts" position="bottom">
-      <ChooseProducts  @showProduct="showProduct" ></ChooseProducts>
+      <ChooseProducts @showProduct="showProduct"></ChooseProducts>
     </van-popup>
   </div>
 </template>
 <script>
 import store from "@/vuex/index";
+import { mapMutations, mapActions } from "vuex";
 import GoodsAction from "@/components/Products/GoodsAction";
 import ChooseProducts from "@/components/Products/ChooseProducts";
 import ReturnTop from "@/components/ReturnTop";
 import { Toast } from "vant";
 import areaList from "@/mockdata/area.json";
-// 商品详情
-// import ProductsData from "@/mockdata/Products.json";
+
 export default {
   data() {
     return {
@@ -179,13 +179,16 @@ export default {
       bannerIndex: 1,
       data: this.$store.state.products.productsData,
       bannerImgs: this.$store.state.products.productsData.imgList,
-      showBase: false,
-      location: { city_list: "", county_list: "", province_list: "" },
       areaLists: areaList, //省市区数据
-      showProducts: false,
+      showProducts: false
     };
   },
   methods: {
+    ...mapActions([
+      "confirmAreaActions",
+      "showBasesActions",
+      "cancelAreaActions"
+    ]),
     // 当前banner下标
     onBannersChange(index) {
       this.bannerIndex = index + 1;
@@ -194,26 +197,13 @@ export default {
     sizeForm() {
       this.showSizeForm = !this.showSizeForm;
     },
-    showBases() {
-      this.showBase = !this.showBase;
-    },
     showProduct() {
       this.showProducts = !this.showProducts;
-    },
-    //定位 重新选择
-    confirmArea(data) {
-      this.location.city_list = data[0].name;
-      this.location.county_list = data[1].name;
-      this.location.province_list = data[2].name;
-      this.showBase = !this.showBase;
-    },
-    //定位 取消
-    cancelArea() {
-      this.showBase = !this.showBase;
     }
   },
   mounted() {
-    console.log(this.$store.state.products.productsData);
+    // console.log(this.$store.state.products.productsData);
+    // console.log(this.$store.state.products.showBase);
   },
   components: {
     GoodsAction,

@@ -11,7 +11,7 @@
           <span class="choose-size-duration">{{suData.duration}}</span>天</div>
         <div class="choose-size-choosed-style">
           <span class="choose-size-choosed-tit">已选择：</span>
-          <div class="choose-size-choosed-text">{{selectedColor}}，{{selectedSize}}，{{selectedNumb}}件</div>
+          <div class="choose-size-choosed-text">{{this.$store.state.products.selectedData.selectedColor}}，{{this.$store.state.products.selectedData.selectedSize}}，{{this.$store.state.products.selectedData.selectedNumb}}件</div>
         </div>
       </div>
       <div class="close-choose-size">
@@ -24,27 +24,27 @@
         <div class="choose-title-wrap">
           <span class="lens-text">颜色</span>
           <span class="lens-choosed">（已选：
-            <i class="lens-choosed-s">{{selectedColor}}</i>）</span>
+            <i class="lens-choosed-s">{{this.$store.state.products.selectedData.selectedColor}}</i>）</span>
           <div class="Specs-list">
-            <div class="specs-detial-normalSpecs" :class="{'specs-detial-checked':selectedColor==item.des}" :id="item.specsId" v-for="(item,index) in sizeList.normalSpecs[0].specs" :key="index" @click="tabColorActions({des:item.des,specsId:item.specsId})">{{item.des}}</div>
+            <div class="specs-detial-normalSpecs" :class="{'specs-detial-checked':$store.state.products.selectedData.selectedColor==item.des}" :id="item.specsId" v-for="(item,index) in sizeList.normalSpecs[0].specs" :key="index" @click="tabColorActions({des:item.des,specsId:item.specsId})">{{item.des}}</div>
           </div>
         </div>
         <div class="choose-title-wrap">
           <span class="lens-text">{{sizeList.normalSpecs[1].name}}</span>
           <span class="lens-choosed">（已选：
-            <i class="lens-choosed-s">{{selectedSize}}</i>）</span>
+            <i class="lens-choosed-s">{{this.$store.state.products.selectedData.selectedSize}}</i>）</span>
           <div class="Specs-list">
-            <div class="specs-detial-normalSpecs" :class="{'specs-detial-checked':selectedSize==item.des}" :id="item.specsId" v-for="(item,index) in sizeList.normalSpecs[1].specs" :key="index" @click="TABSIZE({des:item.des,specsId:item.specsId})">{{item.des}}</div>
+            <div class="specs-detial-normalSpecs" :class="{'specs-detial-checked':$store.state.products.selectedData.selectedSize==item.des}" :id="item.specsId" v-for="(item,index) in sizeList.normalSpecs[1].specs" :key="index" @click="tabSizeActions({des:item.des,specsId:item.specsId})">{{item.des}}</div>
           </div>
         </div>
         <!-- 选择数量 -->
         <div class="choose-num-wrap">
           <div class="choose-num-test">购买数量</div>
           <div class="contral-num">
-            <div class="count-reduce" :class="{'count-disabled':selectedNumb<=1}" @click="subtractionActions">
+            <div class="count-reduce" :class="{'count-disabled':this.$store.state.products.selectedData.selectedNumb<=1}" @click="subtractionActions">
               <span class="count-horizontal"></span>
             </div>
-            <div class="buy-count">{{selectedNumb}}</div>
+            <div class="buy-count">{{this.$store.state.products.selectedData.selectedNumb}}</div>
             <div class="count-add" @click="additionActions">
               <span class="count-horizontal"></span>
               <span class="count-vertical"></span>
@@ -74,13 +74,7 @@ export default {
     return {
       msg: "ChooseProducts",
       suData: this.$store.state.products.product.suData,
-      sizeList: this.$store.state.products.product.sizeList,
-      // 已选择颜色
-      selectedColor: this.$store.state.products.selectedData.selectedColor,
-      // 已选择尺寸
-      selectedSize: this.$store.state.products.selectedData.selectedSize,
-      // 已选择数量
-      selectedNumb: this.$store.state.products.selectedData.selectedNumb
+      sizeList: this.$store.state.products.product.sizeList
     };
   },
   methods: {
@@ -99,7 +93,7 @@ export default {
   mounted() {
     // console.log(this.suData);
     // console.log(this.selectedData);
-    console.log(this.$store.state.products.product.suData);
+    // console.log(this.$store.state.products.product.suData);
   }
 };
 </script>

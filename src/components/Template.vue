@@ -7,7 +7,9 @@ export default {
     return {
       msg: "Template"
     };
-  }
+  },
+  methods: {},
+  mounted() {}
 };
 </script>
 
