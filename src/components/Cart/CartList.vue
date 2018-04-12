@@ -23,7 +23,7 @@
           <div class="float-left icon-radio">
             <b class="su-check">
               <span class="nocheck" v-if="$store.state.cart.storeList[index]">
-                <i class="iconfont van_checkbox" :class="[$store.state.cart.storeList[index].storeCheckData[index2] ? 'icon-checked':'icon-unchecked']" @click="suCheckChangeActions({key:key,index:index,index2:index2})"></i>
+                <i class="iconfont van_checkbox " :class="[$store.state.cart.storeList[index].storeCheckData[index2] ? 'icon-checked':'icon-unchecked']" @click="suCheckChangeActions({key:key,index:index,index2:index2})"></i>
               </span>
             </b>
           </div>
@@ -33,7 +33,7 @@
           </div>
           <div class="product-detail">
             <div class="product-name " v-if="$store.state.cart.storeList[index]" v-show="!$store.state.cart.storeList[index].data[index2]">
-              <a href="javascript:;">{{shopPanelProductSet.designName}}</a>
+              <a href="javascript:;">{{shopPanelProductSet.designName}} </a>
             </div>
             <div class="product-info " v-if="$store.state.cart.storeList[index]" v-show="!$store.state.cart.storeList[index].data[index2]">
               <div class="product-dec">{{shopPanelProductSet.shopCar.sizeName}}</div>
@@ -62,12 +62,11 @@
   </div>
 </template>
 <script>
-import { Checkbox, CheckboxGroup } from "vant";
 import { mapMutations, mapActions } from "vuex";
 export default {
   data() {
     return {
-      msg: "CartList"
+      msg: "CartList",
       // data: this.$store.state.cart.ShopcarData
     };
   },

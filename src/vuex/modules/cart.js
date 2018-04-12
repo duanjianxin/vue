@@ -89,7 +89,7 @@ const mutations = {
   SUCHECKCHANGE(state, data) { //key, index, index2
     if (state.storeList[data.index].storeCheckData) {
       state.storeList[data.index].storeCheckData[data.index2] = !state.storeList[data.index].storeCheckData[data.index2];
-      // console.log(state.storeList[data.index].storeCheckData[data.index2]);
+      console.log(state.storeList[data.index].storeCheckData[data.index2]);
     }
   }
 };
