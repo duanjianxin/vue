@@ -38,17 +38,12 @@ export default {
 };
 </script>
 
-<style lang="scss"  type="text/css">
+<style lang="scss" scoped=""  type="text/css">
 .container {
   position: relative;
   width: 100%;
   min-height: 75%;
   background-color: #f2f2f2;
   padding-bottom: 1.98rem;
-}
-.van-checkbox--checked {
-  color: #fff;
-  border-color: #7f4395;
-  background-color: #7f4395;
 }
 </style>

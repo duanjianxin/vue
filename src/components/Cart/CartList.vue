@@ -3,19 +3,16 @@
     <div class="shop-panel" v-for="(shopPanel,key,index) in $store.state.cart.ShopcarData.dic" :key="key">
       <div class="shop-panel-store border-b-1 clear">
         <div class="float-right">
-          <span class="store-edit" data-edit="1" @click="storeEdit(key,index)" v-if="storeList[index]">{{storeList[index].ifstoreEdit?'完成':'编辑'}}</span>
+          <span class="store-edit" data-edit="1" @click="storeEditActions({key:key,index:index})" v-if="$store.state.cart.storeList[index]">{{$store.state.cart.storeList[index].ifstoreEdit?'完成':'编辑'}}</span>
         </div>
         <div class="float-left">
           <b class="store-check">
-            <span class="nocheck" v-if="storeList[index]">
-              <van-checkbox class="van_checkbox" v-model="storeList[index].storeCheck" @change="storeCheckChange(key,index)"></van-checkbox>
-            </span>
-            <span class="checked none">
-              <i class="iconfont icon-checked"></i>
+            <span class="nocheck" v-if="$store.state.cart.storeList[index]">
+              <i class="iconfont van_checkbox" :class="[$store.state.cart.storeList[index].storeCheck ? 'icon-checked':'icon-unchecked']" @click="storeCheckChangeActions({key:key,index:index})"></i>
             </span>
           </b>
           <img src="https://static.biyao.com/m/img/master/shopCar/store-logo.png" class="store-logo">
-          <a class="store-name" href="/classify/supplierHome?supplierId=130086">{{shopPanel[0].supplierName}}</a>
+          <a class="store-name" href="javascript:;">{{shopPanel[0].supplierName}}</a>
           <span class="icon-arrow-right">
             <i class="iconfont icon-more"></i>
           </span>
@@ -25,23 +22,20 @@
         <div class="shop-panel-product-item border-b-1 clear" v-for="(shopPanelProductSet,index2) in shopPanel" :key="shopPanelProductSet.shopCar.createTime">
           <div class="float-left icon-radio">
             <b class="su-check">
-              <span class="nocheck" v-if="storeList[index]">
-                <van-checkbox class="van_checkbox" v-model="storeList[index].storeCheckData[index2]" :change="suCheckChange(key,index,index2)"></van-checkbox>
-              </span>
-              <span class="checked none">
-                <i class="iconfont icon-checked"></i>
+              <span class="nocheck" v-if="$store.state.cart.storeList[index]">
+                <i class="iconfont van_checkbox" :class="[$store.state.cart.storeList[index].storeCheckData[index2] ? 'icon-checked':'icon-unchecked']" @click="suCheckChangeActions({key:key,index:index,index2:index2})"></i>
               </span>
             </b>
           </div>
           <div class="product-pic border-1">
-            <a href="/products/1300865211060100001.html">
+            <a href="javascript:;">
               <img class="lazy" :src="shopPanelProductSet.img_url_288" onerror="javascript:this.src='https://static.biyao.com/m/img/master/base/trans.png'"></a>
           </div>
           <div class="product-detail">
-            <div class="product-name " v-if="storeList[index]" v-show="!storeList[index].data[index2]">
-              <a href="/products/1300865211060100001.html">{{shopPanelProductSet.designName}}</a>
+            <div class="product-name " v-if="$store.state.cart.storeList[index]" v-show="!$store.state.cart.storeList[index].data[index2]">
+              <a href="javascript:;">{{shopPanelProductSet.designName}}</a>
             </div>
-            <div class="product-info " v-if="storeList[index]" v-show="!storeList[index].data[index2]">
+            <div class="product-info " v-if="$store.state.cart.storeList[index]" v-show="!$store.state.cart.storeList[index].data[index2]">
               <div class="product-dec">{{shopPanelProductSet.shopCar.sizeName}}</div>
               <div class="product-buy">
                 <span class="product-price">￥
@@ -50,7 +44,7 @@
                 <span class="product-num">{{shopPanelProductSet.shopCar.num}}</span>
               </div>
             </div>
-            <div class="product-edit clear " v-if="storeList[index]" v-show="storeList[index].data[index2]" data-shopcarid="805345460" data-suid="1300865211060100001">
+            <div class="product-edit clear " v-if="$store.state.cart.storeList[index]" v-show="$store.state.cart.storeList[index].data[index2]" data-shopcarid="805345460" data-suid="1300865211060100001">
               <span class="del-btn float-right">
                 <i class="iconfont icon-delete"></i>
               </span>
@@ -69,66 +63,27 @@
 </template>
 <script>
 import { Checkbox, CheckboxGroup } from "vant";
+import { mapMutations, mapActions } from "vuex";
 export default {
   data() {
     return {
-      msg: "CartList",
-      data: this.$store.state.cart.ShopcarData,
-      /*
-      storeList:[
-            name: key,//id号
-            ifstoreEdit: true,//编辑true   完成false
-            storeCheck: false,// 复选框  选中true   未选中false
-            data: [], // 编辑状态
-            storeCheckData: [] //复选框状态
-      ]
-      */
-      storeList: []
+      msg: "CartList"
+      // data: this.$store.state.cart.ShopcarData
     };
   },
   methods: {
-    storeListData() {
-      for (const key in this.data.dic) {
-        if (this.data.dic.hasOwnProperty(key)) {
-          const element = this.data.dic[key];
-          this.storeList.push({
-            name: key,
-            ifstoreEdit: false,
-            storeCheck: false,
-            data: [],
-            storeCheckData: []
-          });
-          for (let index = 0; index < element.length; index++) {
-            if (this.storeList.find(element => element.name == key)) {
-              this.storeList[
-                this.storeList.findIndex(element => element.name == key)
-              ].data.push(false);
-              this.storeList[
-                this.storeList.findIndex(element => element.name == key)
-              ].storeCheckData.push(false);
-            }
-          }
-        }
-      }
-    },
-    // 是否点击 编辑按钮
-    storeEdit(key, index) {
-      this.storeList[index].ifstoreEdit = !this.storeList[index].ifstoreEdit;
-      let data = this.storeList[index].data;
-      for (let i = 0; i < data.length; i++) {
-        data[i] = !data[i];
-      }
-    },
-    // 是否点击 复选框 商家
-    storeCheckChange(key, index) {},
-
-    // 是否点击 复选框 商品
-    suCheckChange(key, index, index2) {}
+    ...mapActions([
+      "storeListDataActions",
+      "storeEditActions",
+      "storeCheckChangeActions",
+      "suCheckChangeActions"
+    ])
   },
   mounted() {
-    this.storeListData();
+    this.storeListDataActions();
     // console.log(this.$store.state.cart.ShopcarData);
-  }
+  },
+  watch: {}
 };
 </script>
 
@@ -158,7 +113,7 @@ img {
   float: left;
 }
 .van_checkbox {
-  display: inline-grid;
+  color: #7f4395;
 }
 .shop-panel {
   margin-bottom: 0.2rem;
