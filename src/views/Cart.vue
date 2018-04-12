@@ -3,9 +3,10 @@
     <Title :childTitle='childTitle'></Title>
     <div class="container">
       <Empty v-if="this.$store.state.cart.Emptylist.length<=0"></Empty>
-      <CartList v-else>
-
-      </CartList>
+      <div v-else>
+        <CartList></CartList>
+        <SetBottom></SetBottom>
+      </div>
     </div>
     <NavFooter :actives="2"></NavFooter>
   </div>
@@ -13,6 +14,7 @@
 <script>
 import Empty from "@/components/Cart/Empty";
 import CartList from "@/components/Cart/CartList";
+import SetBottom from "@/components/Cart/SetBottom";
 import NavFooter from "@/components/NavFooter";
 import Title from "@/components/Classify/Title";
 export default {
@@ -30,7 +32,8 @@ export default {
     NavFooter,
     Title,
     Empty,
-    CartList
+    CartList,
+    SetBottom
   }
 };
 </script>
