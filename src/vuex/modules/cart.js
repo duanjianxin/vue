@@ -15,12 +15,12 @@ const state = {
            storeCheckData: [] //复选框状态
      ]
      */
-  storeList: []
+  storeList: [],
+  // 是否全选
+  CheckAll: false
 };
 // getters
-const getters = {
-  suCheckChange() {}
-};
+const getters = {};
 // actions
 const actions = {
   storeListDataActions({ commit }) {
@@ -34,6 +34,12 @@ const actions = {
   },
   suCheckChangeActions({ commit }, data) {
     commit("SUCHECKCHANGE", data);
+  },
+  CheckAllActions({ commit }) {
+    commit("CHECKALL");
+  },
+  ifCheckAllActions({ commit }) {
+    commit("IFCHECKALL");
   }
 };
 // mutations
@@ -81,19 +87,56 @@ const mutations = {
     for (let i = 0; i < datas.length; i++) {
       datas[i].isSelected = state.storeList[data.index].storeCheck;
     }
+    // 调用判断是否全选方法
+    mutations.IFCHECKALL(state);
   },
-
   // 是否点击 复选框 商品
   SUCHECKCHANGE(state, data) {
     //key, index, index2
-    if (state.storeList[data.index].storeCheckData) {
-      state.storeList[data.index].storeCheckData[
-        data.index2
-      ].isSelected = !state.storeList[data.index].storeCheckData[data.index2]
-        .isSelected;
-      console.log(
-        state.storeList[data.index].storeCheckData[data.index2].isSelected
-      );
+    state.storeList[data.index].storeCheckData[data.index2].isSelected = !state
+      .storeList[data.index].storeCheckData[data.index2].isSelected;
+    let fordata = state.storeList[data.index].storeCheckData;
+    for (let i = 0; i < fordata.length; i++) {
+      if (fordata.length > 1) {
+        if (fordata.every(x => x.isSelected == true)) {
+          state.storeList[data.index].storeCheck = fordata[i].isSelected;
+        } else {
+          state.storeList[data.index].storeCheck = false;
+        }
+      } else {
+        state.storeList[data.index].storeCheck = fordata[i].isSelected;
+      }
+    }
+    // 调用判断是否全选方法
+    mutations.IFCHECKALL(state);
+  },
+  // 全选
+  CHECKALL(state) {
+    state.CheckAll = !state.CheckAll;
+    let datas = state.storeList;
+    for (let i = 0; i < datas.length; i++) {
+      state.storeList[i].storeCheck = state.CheckAll;
+      if (state.CheckAll == true) {
+        isCheck(true);
+      } else {
+        isCheck(false);
+      }
+      function isCheck(data) {
+        for (let j = 0; j < state.storeList[i].storeCheckData.length; j++) {
+          state.storeList[i].storeCheckData[j].isSelected = data;
+        }
+      }
+    }
+  },
+  // 判断是否全选
+  IFCHECKALL(state) {
+    let datas = state.storeList;
+    for (let i = 0; i < datas.length; i++) {
+      if (datas.every(x => x.storeCheck == true)) {
+        state.CheckAll = true;
+      } else {
+        state.CheckAll = false;
+      }
     }
   }
 };

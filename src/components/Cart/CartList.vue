@@ -68,6 +68,7 @@ export default {
     return {
       msg: "CartList"
       // data: this.$store.state.cart.ShopcarData
+      // storeList: this.$store.state.cart.storeList
     };
   },
   methods: {
@@ -75,14 +76,22 @@ export default {
       "storeListDataActions",
       "storeEditActions",
       "storeCheckChangeActions",
-      "suCheckChangeActions"
+      "suCheckChangeActions",
+      "ifCheckAllActions"
     ])
   },
   mounted() {
     this.storeListDataActions();
     // console.log(this.$store.state.cart.ShopcarData);
   },
-  watch: {}
+  watch: {
+    "this.$store.state.cart.storeList": {
+      deep: true,
+      handler: function(val, oldval) {
+        console.log(val);
+      }
+    }
+  }
 };
 </script>
 

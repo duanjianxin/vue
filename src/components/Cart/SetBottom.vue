@@ -1,36 +1,33 @@
 <template>
-    <div class="set-bottom border-t-1 clear" id="set-bottom">
-        <div class="float-right">
-            <span>合计：</span>
-            <span class="total-price" id="total-price">￥
-                <i>0</i>
-            </span>
-            <div class="settlement" id="settlement">去结算</div>
-        </div>
-        <div class="float-left">
-            <div id="checkAll">
-                <span class="nocheck">
-                    <van-checkbox class="van_checkbox"></van-checkbox>
-                </span>
-                <!-- <span class="checked none">
-                    <svg class="icon" aria-hidden="true">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-icon_right_sel"></use>
-                    </svg>
-                </span> -->
-                <i>全选</i>
-            </div>
-        </div>
+  <div class="set-bottom border-t-1 clear" id="set-bottom">
+    <div class="float-right">
+      <span>合计：</span>
+      <span class="total-price" id="total-price">￥
+        <i>0</i>
+      </span>
+      <div class="settlement" id="settlement">去结算</div>
     </div>
+    <div class="float-left">
+      <div id="checkAll">
+        <span class="nocheck">
+          <i class="iconfont van_checkbox " :class="[$store.state.cart.CheckAll ? 'icon-checked':'icon-unchecked']" @click="CheckAllActions"></i>
+        </span>
+        <i>全选</i>
+      </div>
+    </div>
+  </div>
 </template>
 <script>
-import { Checkbox, CheckboxGroup } from "vant";
+import { mapMutations, mapActions } from "vuex";
 export default {
   data() {
     return {
       msg: "SetBottom"
     };
   },
-  methods: {},
+  methods: {
+    ...mapActions(["CheckAllActions"])
+  },
   mounted() {}
 };
 </script>
@@ -49,6 +46,9 @@ export default {
 }
 .border-t-1 {
   border-top: 1px solid #ccc;
+}
+.van_checkbox {
+  color: #7f4395;
 }
 .set-bottom {
   position: fixed;
