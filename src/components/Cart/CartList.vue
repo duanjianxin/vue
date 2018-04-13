@@ -45,13 +45,13 @@
               </div>
             </div>
             <div class="product-edit clear " v-if="$store.state.cart.storeList[index]" v-show="$store.state.cart.storeList[index].data[index2]" data-shopcarid="805345460" data-suid="1300865211060100001">
-              <span class="del-btn float-right">
+              <span class="del-btn float-right" @click="delProductActions({key:key,index:index,index2:index2})">
                 <i class="iconfont icon-delete"></i>
               </span>
               <div class="maparea">
-                <span class="reduce-btn font-disable">-</span>
-                <span class="su-num">1</span>
-                <span class="add-btn ">+</span>
+                <span class="reduce-btn " :class="[shopPanelProductSet.shopCar.num<=1 ? 'font-disable':'']" @click="minuProductActions({key:key,index:index,index2:index2})">-</span>
+                <span class="su-num">{{shopPanelProductSet.shopCar.num}}</span>
+                <span class="add-btn " @click="addProductActions({key:key,index:index,index2:index2})">+</span>
               </div>
             </div>
           </div>
@@ -77,21 +77,18 @@ export default {
       "storeEditActions",
       "storeCheckChangeActions",
       "suCheckChangeActions",
-      "ifCheckAllActions"
+      "ifCheckAllActions",
+      "addProductActions",
+      "minuProductActions",
+      "delProductActions"
     ])
   },
   mounted() {
     this.storeListDataActions();
     // console.log(this.$store.state.cart.ShopcarData);
+    
   },
-  watch: {
-    "this.$store.state.cart.storeList": {
-      deep: true,
-      handler: function(val, oldval) {
-        console.log(val);
-      }
-    }
-  }
+  watch: {}
 };
 </script>
 

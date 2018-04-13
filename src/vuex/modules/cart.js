@@ -1,11 +1,14 @@
 // 商品详情
 import ShopcarData from "@/mockdata/Shopcar.json";
+import { Dialog } from "vant"; //弹出框
+
 // initial state
 const state = {
   count: 1,
   ShopcarData: ShopcarData,
   // 是否是空购物车 true为空
   Emptylist: ShopcarData.packageList,
+
   /*
      storeList:[
            name: key,//id号
@@ -40,6 +43,18 @@ const actions = {
   },
   ifCheckAllActions({ commit }) {
     commit("IFCHECKALL");
+  },
+  // 商品数量加
+  addProductActions({ commit }, data) {
+    commit("ADDPRODUCT", data);
+  },
+  // 商品数量减
+  minuProductActions({ commit }, data) {
+    commit("MINUSPRODUCT", data);
+  },
+  // 商品删除
+  delProductActions({ commit }, data) {
+    commit("DELPRODUCT", data);
   }
 };
 // mutations
@@ -138,6 +153,42 @@ const mutations = {
         state.CheckAll = false;
       }
     }
+  },
+  // 商品数量加
+  ADDPRODUCT(state, data) {
+    console.log(data);
+    state.ShopcarData.dic[data.key][data.index2].shopCar.num++;
+  },
+  // 商品数量减
+  MINUSPRODUCT(state, data) {
+    if (state.ShopcarData.dic[data.key][data.index2].shopCar.num > 1) {
+      state.ShopcarData.dic[data.key][data.index2].shopCar.num--;
+    }
+  },
+  // 商品删除
+  DELPRODUCT(state, data) {
+    let datas = state.ShopcarData;
+
+    // Dialog.confirm({
+    //   message: "确定要删除该商品吗？"
+    // })
+    //   .then(() => {
+    //     // on confirm
+    //     console.log("删除");
+    //   })
+    //   .catch(() => {});
+    function delpRoduct(datas, data) {
+      for (const key in datas.dic) {
+        if (datas.dic.hasOwnProperty(key)) {
+          const element = datas.dic[key];
+          if (key == data.key) {
+            console.log(datas.dic[key].isArray);
+            console.log(element);
+          }
+        }
+      }
+    }
+    delpRoduct(datas, data);
   }
 };
 export default {

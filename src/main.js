@@ -30,7 +30,6 @@ Vue.use(Swipe).use(SwipeItem); //Swipe 轮播
 Vue.use(List); //瀑布流滚动加载，用于控制长列表的展示
 Vue.use(Lazyload, options); //图片懒加载;
 Vue.use(Tabbar).use(TabbarItem); //Tabbar 标签栏
-
 Vue.use(GoodsAction); //商品页行动点
 Vue.use(GoodsActionBigBtn); //商品页行动点
 Vue.use(GoodsActionMiniBtn); //商品页行动点
