@@ -12,7 +12,7 @@
             </span>
           </b>
           <img src="https://static.biyao.com/m/img/master/shopCar/store-logo.png" class="store-logo">
-          <a class="store-name" href="javascript:;">{{shopPanel[0].supplierName}}</a>
+          <a class="store-name" href="javascript:;">{{$store.state.cart.ShopcarData.supplierName[index]}}</a>
           <span class="icon-arrow-right">
             <i class="iconfont icon-more"></i>
           </span>
@@ -86,7 +86,6 @@ export default {
   mounted() {
     this.storeListDataActions();
     // console.log(this.$store.state.cart.ShopcarData);
-    
   },
   watch: {}
 };

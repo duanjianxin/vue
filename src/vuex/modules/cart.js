@@ -168,7 +168,6 @@ const mutations = {
   // 商品删除
   DELPRODUCT(state, data) {
     let datas = state.ShopcarData;
-
     // Dialog.confirm({
     //   message: "确定要删除该商品吗？"
     // })
@@ -182,8 +181,11 @@ const mutations = {
         if (datas.dic.hasOwnProperty(key)) {
           const element = datas.dic[key];
           if (key == data.key) {
-            console.log(datas.dic[key].isArray);
-            console.log(element);
+            if (element.length == 1) {
+              alert("这个时候要删除商家数据了");
+            }
+            // console.log(Array.isArray(datas.dic[key]));
+            datas.dic[key].splice(data.index2, 1);
           }
         }
       }
