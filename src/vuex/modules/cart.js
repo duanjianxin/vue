@@ -183,6 +183,8 @@ const mutations = {
           if (key == data.key) {
             if (element.length == 1) {
               alert("这个时候要删除商家数据了");
+              datas.supplierIds.splice(data.index, 1);
+              datas.supplierName.splice(data.index, 1);
             }
             // console.log(Array.isArray(datas.dic[key]));
             datas.dic[key].splice(data.index2, 1);
