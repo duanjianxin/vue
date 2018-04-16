@@ -1,6 +1,6 @@
 # my-vue
 
-仿必要商城
+仿必要商城.....
 
 > A Vue.js project
 
