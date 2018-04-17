@@ -1,6 +1,6 @@
 <template>
   <div id="panel-set" class="">
-    <div class="shop-panel" v-for="(shopPanel,key,index) in $store.state.cart.ShopcarData.dic" :key="key">
+    <div class="shop-panel" v-for="(shopPanel,key,index) in $store.state.cart.ShopcarData.dic" :key="key" v-if="key==$store.state.cart.ShopcarData.supplierIds[index]">
       <div class="shop-panel-store border-b-1 clear">
         <div class="float-right">
           <span class="store-edit" data-edit="1" @click="storeEditActions({key:key,index:index})" v-if="$store.state.cart.storeList[index]">{{$store.state.cart.storeList[index].ifstoreEdit?'完成':'编辑'}}</span>

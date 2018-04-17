@@ -8,7 +8,6 @@ const state = {
   ShopcarData: ShopcarData,
   // 是否是空购物车 true为空
   Emptylist: ShopcarData.packageList,
-
   /*
      storeList:[
            name: key,//id号
@@ -20,7 +19,9 @@ const state = {
      */
   storeList: [],
   // 是否全选
-  CheckAll: false
+  CheckAll: false,
+  //总价格
+  totalPrice: 0
 };
 // getters
 const getters = {};
@@ -104,6 +105,8 @@ const mutations = {
     }
     // 调用判断是否全选方法
     mutations.IFCHECKALL(state);
+    // 调用总金额方法
+    mutations.ALLTOTALPRICE(state);
   },
   // 是否点击 复选框 商品
   SUCHECKCHANGE(state, data) {
@@ -124,6 +127,8 @@ const mutations = {
     }
     // 调用判断是否全选方法
     mutations.IFCHECKALL(state);
+    // 调用总金额方法
+    mutations.ALLTOTALPRICE(state);
   },
   // 全选
   CHECKALL(state) {
@@ -142,6 +147,8 @@ const mutations = {
         }
       }
     }
+    // // 调用总金额方法
+    mutations.ALLTOTALPRICE(state);
   },
   // 判断是否全选
   IFCHECKALL(state) {
@@ -156,26 +163,31 @@ const mutations = {
   },
   // 商品数量加
   ADDPRODUCT(state, data) {
-    console.log(data);
+    // console.log(data);
     state.ShopcarData.dic[data.key][data.index2].shopCar.num++;
+    // 调用总金额方法
+    mutations.ALLTOTALPRICE(state);
   },
   // 商品数量减
   MINUSPRODUCT(state, data) {
     if (state.ShopcarData.dic[data.key][data.index2].shopCar.num > 1) {
       state.ShopcarData.dic[data.key][data.index2].shopCar.num--;
+      // 调用总金额方法
+      mutations.ALLTOTALPRICE(state);
     }
   },
   // 商品删除
   DELPRODUCT(state, data) {
     let datas = state.ShopcarData;
-    // Dialog.confirm({
-    //   message: "确定要删除该商品吗？"
-    // })
-    //   .then(() => {
-    //     // on confirm
-    //     console.log("删除");
-    //   })
-    //   .catch(() => {});
+    Dialog.confirm({
+      message: "确定要删除该商品吗？"
+    })
+      .then(() => {
+        // on confirm
+        // console.log("删除");
+        delpRoduct(datas, data);
+      })
+      .catch(() => {});
     function delpRoduct(datas, data) {
       for (const key in datas.dic) {
         if (datas.dic.hasOwnProperty(key)) {
@@ -183,16 +195,60 @@ const mutations = {
           if (key == data.key) {
             if (element.length == 1) {
               // alert("这个时候要删除商家数据了");
-              datas.supplierIds.splice(data.index, 1);
-              datas.supplierName.splice(data.index, 1);
+              datas.supplierIds.splice(data.index, 1); //删除该条商品id
+              datas.supplierName.splice(data.index, 1); //删除该条商家名
+              //删除该商家信息
+              state.storeList.splice(data.index, 1);
+              // datas.packageList.splice(data.index, 1)
+              delete datas.dic[key];
+              //
+            } else {
+              // console.log(Array.isArray(datas.dic[key]));
+              datas.dic[key].splice(data.index2, 1); //删除该条商品
+              state.storeList[data.index].storeCheckData.splice(data.index2, 1);
+              state.storeList[data.index].data.splice(data.index2, 1);
             }
-            // console.log(Array.isArray(datas.dic[key]));
-            datas.dic[key].splice(data.index2, 1);
+            // // 调用总金额方法
+            mutations.ALLTOTALPRICE(state);
           }
         }
       }
     }
-    delpRoduct(datas, data);
+  },
+  // allTotalPrice 所有商品金额
+  ALLTOTALPRICE(state) {
+    // console.log(
+    //   state.ShopcarData.dic[data.key][data.index2].price *
+    //     state.ShopcarData.dic[data.key][data.index2].shopCar.num
+    // );
+    let storeList = state.storeList,
+      ShopcarData = state.ShopcarData;
+
+    // 全选
+    if (state.CheckAll == true) {
+      state.totalPrice = 0;
+      for (let i = 0; i < storeList.length; i++) {
+        let storeCheckData = storeList[i].storeCheckData;
+        for (let j = 0; j < storeCheckData.length; j++) {
+          state.totalPrice +=
+            ShopcarData.dic[storeList[i].name][j].shopCar.num *
+            ShopcarData.dic[storeList[i].name][j].price;
+        }
+      }
+    } else {
+      state.totalPrice = 0;
+      for (let i = 0; i < storeList.length; i++) {
+        let storeCheckData = storeList[i].storeCheckData;
+        for (let j = 0; j < storeCheckData.length; j++) {
+          // 选中的商品
+          if (storeCheckData[j].isSelected == true) {
+            state.totalPrice +=
+              ShopcarData.dic[storeList[i].name][j].shopCar.num *
+              ShopcarData.dic[storeList[i].name][j].price;
+          }
+        }
+      }
+    }
   }
 };
 export default {

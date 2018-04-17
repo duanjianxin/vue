@@ -1,39 +1,5 @@
 {
   "totalPrice": 327,
-  "packageList": [
-    {
-      "description": "普通包装",
-      "updateTime": "2018-04-11 16:11:30",
-      "picName": "",
-      "packageType": "普通包装",
-      "productPackageId": 130164,
-      "createBy": "system",
-      "isDefault": 1,
-      "createTime": "2018-04-11 16:11:30",
-      "updateBy": "system",
-      "price": 0,
-      "enable": true,
-      "imageURL": "",
-      "webShow": true,
-      "supplier_id": 130164
-    },
-    {
-      "description": "普通包装",
-      "updateTime": "2018-04-11 16:11:30",
-      "picName": "",
-      "packageType": "普通包装",
-      "productPackageId": 130086,
-      "createBy": "system",
-      "isDefault": 1,
-      "createTime": "2018-04-11 16:11:30",
-      "updateBy": "system",
-      "price": 0,
-      "enable": true,
-      "imageURL": "",
-      "webShow": true,
-      "supplier_id": 130086
-    }
-  ],
   "dic": {
     "130086": [
       {

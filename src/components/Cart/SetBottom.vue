@@ -3,7 +3,7 @@
     <div class="float-right">
       <span>合计：</span>
       <span class="total-price" id="total-price">￥
-        <i>0</i>
+        <i>{{$store.state.cart.totalPrice}}</i>
       </span>
       <div class="settlement" id="settlement">去结算</div>
     </div>

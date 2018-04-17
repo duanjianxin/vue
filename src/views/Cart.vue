@@ -2,7 +2,7 @@
   <div style="height: 100vh;">
     <Title :childTitle='childTitle'></Title>
     <div class="container">
-      <Empty v-if="this.$store.state.cart.Emptylist.length<=0"></Empty>
+      <Empty v-if="this.$store.state.cart.ShopcarData.supplierIds.length==0"></Empty>
       <div v-else>
         <CartList></CartList>
         <SetBottom></SetBottom>
