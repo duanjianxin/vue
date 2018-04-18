@@ -23,11 +23,21 @@ import ModuleOne from "@/components/home/ModuleOne";
 import ModuleThree from "@/components/home/ModuleThree";
 import ReturnTop from "@/components/ReturnTop";
 import NavFooter from "@/components/NavFooter";
+import axios from "axios";
+
+import { mapState, mapMutations, mapActions } from "vuex";
+
 export default {
   data() {
     return {
       msg: "home"
     };
+  },
+  mounted() {
+    this.getHomedatas();
+  },
+  methods: {
+    ...mapActions(["getHomedatas"])
   },
   //   组件
   components: {

@@ -28,7 +28,6 @@ mongoose.connection.on("disconnected", function() {
 });
 
 Router.get("/", function(req, res, next) {
-  // res.send("hello,home list ");
   Home.find({}, function(err, doc) {
     if (err) {
       res.json({
@@ -41,7 +40,7 @@ Router.get("/", function(req, res, next) {
         msg: "请求成功",
         result: {
           count: doc.length,
-          data: doc
+          data: doc[0]
         }
       });
       console.log(doc);
