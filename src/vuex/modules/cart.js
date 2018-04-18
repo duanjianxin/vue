@@ -1,7 +1,8 @@
 // 商品详情
 import ShopcarData from "@/mockdata/Shopcar.json";
+// 方法二
+// import Vue from "vue";
 import { Dialog } from "vant"; //弹出框
-
 // initial state
 const state = {
   count: 1,
@@ -79,6 +80,10 @@ const mutations = {
             state.storeList[
               state.storeList.findIndex(element => element.name == key)
             ].storeCheckData.push({ isSelected: false });
+            /*  //方法二
+          state.storeList[
+              state.storeList.findIndex(element => element.name == key)
+            ].storeCheckData.push({  false }); */
           }
         }
       }
@@ -96,6 +101,11 @@ const mutations = {
   },
   // 是否点击 复选框 商家
   STORECHECKCHANGE(state, data) {
+    /*
+    //方法二
+    //  Vue.set(数组对象,索引,改成什么)
+    Vue.set(state.storeList[data.index].storeCheckData,[data.index2],!state.storeList[data.index].storeCheckData[data.index2]) */
+
     //key, index
     state.storeList[data.index].storeCheck = !state.storeList[data.index]
       .storeCheck;
