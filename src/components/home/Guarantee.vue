@@ -1,27 +1,31 @@
 <template>
   <div class="guarantee_g">
     <ul>
-      <!-- <ul v-if="$store.state.home.homeData"> -->
-      <li v-for="(item, index) in data" :key="index">{{item}}</li>
-      <!-- <li v-for="(item, index) in $store.state.home.homeData.data.platformAssurance" :key="index">{{item}}</li> -->
-      {{homeData}}
+      <li v-for="(item, index) in platformAssurance" :key="index">{{item}}</li>
     </ul>
   </div>
 </template>
 <script>
-import { mapState, mapMutations, mapActions } from "vuex";
+import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
 export default {
   data() {
     return {
-      data: ["大牌制造商出品", "七天无忧退换", "全平台包邮"]
+      // data: ["大牌制造商出品", "七天无忧退换", "全平台包邮"]
     };
   },
-  computed: mapState(["homeData"]),
-  // computed: {
-  //   // ...mapState({ platformAssurance: state => state.platformAssurance })
-  //   ...mapState(["homeData"])
-  // },
-  mounted() {}
+  computed: {
+    ...mapGetters(["platformAssurance"])
+    // ...mapState({
+    //   homeData: state => state.home.homeData
+    // })
+  },
+  methods: {},
+  mounted() {},
+  watch: {
+    // platformAssurance: function(val) {
+    //   console.log(val);
+    // }
+  }
 };
 </script>
 

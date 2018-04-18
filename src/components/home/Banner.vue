@@ -10,23 +10,20 @@
   </div>
 </template>
 <script>
-var dataJson = require("@/mockdata/home.json");
+// var dataJson = require("@/mockdata/home.json");
+
+import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
 export default {
   data() {
     return {
-      banners: []
+      // banners: []
     };
   },
-  mounted() {
-    this.addData();
+  computed: {
+    ...mapGetters(["banners"])
   },
-  methods: {
-    addData() {
-      for (let index = 0; index < dataJson.banners.length; index++) {
-        this.banners.push(dataJson.banners[index]);
-      }
-    }
-  },
+  mounted() {},
+  methods: {},
   components: {}
 };
 </script>

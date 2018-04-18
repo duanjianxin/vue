@@ -33,11 +33,13 @@ export default {
       msg: "home"
     };
   },
+  created() {},
   mounted() {
     this.getHomedatas();
+    this.getTabdatas();
   },
   methods: {
-    ...mapActions(["getHomedatas"])
+    ...mapActions(["getHomedatas", "getTabdatas"])
   },
   //   组件
   components: {

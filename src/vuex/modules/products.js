@@ -21,33 +21,51 @@ const state = {
   },
   // 是否显示地址选择
   showBase: false,
-  location: { city_list: "", county_list: "", province_list: "" }
+  location: {
+    city_list: "",
+    county_list: "",
+    province_list: ""
+  }
 };
 // getters
 const getters = {};
 // actions
 const actions = {
   // 地址选择显示
-  showBasesActions({ commit }) {
+  showBasesActions({
+    commit
+  }) {
     commit("SHOWBASES");
   },
   // 地址选择隐藏
-  cancelAreaActions({ commit }) {
+  cancelAreaActions({
+    commit
+  }) {
     commit("SHOWBASES");
   },
-  confirmAreaActions({ commit }, data) {
+  confirmAreaActions({
+    commit
+  }, data) {
     commit("CONFIRMAREA", data);
   },
-  tabColorActions({ commit }, data) {
+  tabColorActions({
+    commit
+  }, data) {
     commit("TABCOLOR", data);
   },
-  tabSizeActions({ commit }, data) {
+  tabSizeActions({
+    commit
+  }, data) {
     commit("TABSIZE", data);
   },
-  additionActions({ commit }) {
+  additionActions({
+    commit
+  }) {
     commit("ADDITION");
   },
-  subtractionActions({ commit }) {
+  subtractionActions({
+    commit
+  }) {
     commit("SUBTRACTION");
   }
 };

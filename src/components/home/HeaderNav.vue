@@ -48,6 +48,8 @@
 // require styles
 import "swiper/dist/css/swiper.css";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
+
+import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
 var dataJson = require("@/mockdata/cateTabGuycateList.json");
 export default {
   data() {
@@ -72,6 +74,9 @@ export default {
     this.getParams();
     // console.log(dataJson);
     // console.log(this.sortMenu);
+  },
+  computed: {
+    ...mapGetters(["tabs"])
   },
   methods: {
     addData() {
@@ -117,6 +122,9 @@ export default {
   watch: {
     // 监测路由变化,只要变化了就调用获取路由参数方法将数据存储本组件即可
     $route: "getParams"
+    // tabs: function(val) {
+    //   console.log(val);
+    // }
   },
   components: {
     swiper,

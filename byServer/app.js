@@ -7,6 +7,7 @@ var ejs = require("ejs");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var homeRouter = require("./routes/home");
+var tabRouter = require("./routes/tab");
 
 var app = express();
 
@@ -26,17 +27,18 @@ app.use(
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/api/", indexRouter);
+app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/api/home", homeRouter);
+app.use("/api/tab", tabRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
