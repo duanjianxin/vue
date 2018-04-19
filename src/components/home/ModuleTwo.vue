@@ -1,11 +1,11 @@
 <template>
-  <ul class="clear">
-    <li>
+  <ul class="clear" v-if="moduleItemsModuleTwo">
+    <li v-for="item in moduleItemsModuleTwo.moduleItems" :key="item.clickType">
       <router-link :to="{path:'/classify/newproductList'}">
-        <img src="https://bfs.biyao.com/group1/M00/30/12/rBACVFq02lCANJc-AAB39nA80OQ958.jpg" onerror="javascript:this.src='https://static.biyao.com/m/img/master/base/trans.png'">
+        <img :src="item.newImageUrl" onerror="javascript:this.src='https://static.biyao.com/m/img/master/base/trans.png'">
       </router-link>
     </li>
-    <li>
+    <!-- <li>
       <router-link :to="{path:'/classify/newproductList'}">
         <img src="https://bfs.biyao.com/group1/M00/30/12/rBACVFq02maAGEcOAAA3_AiZdDg625.jpg" onerror="javascript:this.src='https://static.biyao.com/m/img/master/base/trans.png'">
       </router-link>
@@ -14,16 +14,19 @@
       <router-link :to="{path:'/classify/newproductList'}">
         <img src="https://bfs.biyao.com/group1/M00/31/C4/rBACYVq02o2AAFxzAAAu95T5fPA018.jpg" onerror="javascript:this.src='https://static.biyao.com/m/img/master/base/trans.png'">
       </router-link>
-    </li>
+    </li> -->
   </ul>
 </template>
 <script>
-var dataJson = require("@/mockdata/home.json");
+import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
 export default {
   data() {
     return {
       msg: "ModuleTwo"
     };
+  },
+  computed: {
+    ...mapGetters(["moduleItemsModuleTwo"])
   }
 };
 </script>

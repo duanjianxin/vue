@@ -30,6 +30,7 @@ Vue.prototype.$post = post;
 Vue.prototype.$fetch = fetch;
 Vue.prototype.$patch = patch;
 Vue.prototype.$put = put;
+
 /* eslint-disable no-new */
 Vue.use(Swipe).use(SwipeItem); //Swipe 轮播
 Vue.use(List); //瀑布流滚动加载，用于控制长列表的展示

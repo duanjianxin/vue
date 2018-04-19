@@ -22,7 +22,9 @@ export default {
   computed: {
     ...mapGetters(["banners"])
   },
-  mounted() {},
+  mounted() {
+    // console.log(this.banners);
+  },
   methods: {},
   components: {}
 };

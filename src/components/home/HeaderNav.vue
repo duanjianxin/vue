@@ -5,7 +5,7 @@
         <swiper-slide class="content ">
           <router-link :to="{path:'/'}">推荐</router-link>
         </swiper-slide>
-        <swiper-slide v-for="(item,index) in sortMenu" :key="index" class="content" :class="{'nav-active':categoryName===item.categoryName}">
+        <swiper-slide v-for="(item,index) in this.tabs" :key="index" class="content" :class="{'nav-active':categoryName===item.categoryName}">
           <router-link :to="{path:'/classify/oldClassify',query: {
             categoryId: item.categoryId}}">
             {{item.categoryName}}
@@ -24,8 +24,11 @@
           <li class="_active">
             <router-link :to="{path:'/'}">推荐</router-link>
           </li>
-          <li class="" v-for="(item,index) in sortMenu" :key="index">
-            <a href="javascript:;"> {{item.categoryName}}</a>
+          <li class="" :class="{'_active':categoryId===item.categoryId}" v-for="(item,index) in this.tabs" :key="index">
+            <router-link :to="{path:'/classify/oldClassify',query: {
+            categoryId: item.categoryId}}" v-on:click.native="subitemsExpanded=!subitemsExpanded">
+              {{item.categoryName}}
+            </router-link>
           </li>
         </ul>
       </div>
@@ -48,9 +51,9 @@
 // require styles
 import "swiper/dist/css/swiper.css";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
-
+// import store from "@/vuex/index";
 import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
-var dataJson = require("@/mockdata/cateTabGuycateList.json");
+// var dataJson = require("@/mockdata/cateTabGuycateList.json");
 export default {
   data() {
     return {
@@ -69,17 +72,19 @@ export default {
       categoryName: "" //当前类名
     };
   },
-  mounted() {
+  created() {
     this.addData();
+  },
+  mounted() {
     this.getParams();
-    // console.log(dataJson);
-    // console.log(this.sortMenu);
   },
   computed: {
     ...mapGetters(["tabs"])
   },
   methods: {
     addData() {
+      let dataJson = this.tabs;
+      // console.log(dataJson.length);
       for (let i = 0; i < dataJson.length; i++) {
         this.sortMenu.push({
           categoryName: dataJson[i].categoryName,
@@ -92,6 +97,7 @@ export default {
       }
     },
     getParams() {
+      let dataJson = this.tabs;
       this.OldcategoryId = this.categoryId;
       // 取到路由带过来的参数
       let routerParamsCategoryId = this.$route.query.categoryId;

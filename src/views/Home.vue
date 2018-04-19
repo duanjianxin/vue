@@ -33,11 +33,11 @@ export default {
       msg: "home"
     };
   },
-  created() {},
-  mounted() {
+  created() {
     this.getHomedatas();
     this.getTabdatas();
   },
+  mounted() {},
   methods: {
     ...mapActions(["getHomedatas", "getTabdatas"])
   },

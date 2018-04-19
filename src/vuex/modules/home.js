@@ -1,14 +1,12 @@
 // 引入 axios
 import axios from "axios";
 // Toast 轻提示
-import {
-  Toast
-} from "vant";
+import { Toast } from "vant";
 // initial state
 const state = {
   count: 1,
   homeData: null,
-  tab: null
+  tab: []
 };
 // getters
 const getters = {
@@ -28,12 +26,42 @@ const getters = {
       return state.tab;
     }
   },
+  moduleItemsModuleTwo: state => {
+    if (state.homeData != null) {
+      let datas = state.homeData.data.modules;
+      for (let i = 0; i < datas.length; i++) {
+        if (datas[i].moduleType == 2) {
+          return datas[i].moduleInfo;
+        }
+      }
+    }
+  },
+  moduleItemsModuleOne: state => {
+    if (state.homeData != null) {
+      let datas = state.homeData.data.modules;
+      for (let i = 0; i < datas.length; i++) {
+        if (datas[i].moduleType == 1) {
+          return datas[i].moduleInfo;
+          // console.log(datas[i].moduleInfo);
+        }
+      }
+    }
+  },
+  moduleItemsModuleThree: state => {
+    if (state.homeData != null) {
+      let datas = state.homeData.data.modules;
+      for (let i = 0; i < datas.length; i++) {
+        if (datas[i].moduleType == 3) {
+          return datas[i].moduleInfo;
+          console.log(datas[i].moduleInfo);
+        }
+      }
+    }
+  }
 };
 // actions
 const actions = {
-  getHomedatas({
-    commit
-  }) {
+  getHomedatas({ commit }) {
     axios.get("/api/home").then(data => {
       var res = data.data;
       if (res.status == 0) {
@@ -43,9 +71,7 @@ const actions = {
       }
     });
   },
-  getTabdatas({
-    commit
-  }) {
+  getTabdatas({ commit }) {
     axios.get("/api/tab").then(data => {
       var res = data.data;
       if (res.status == 0) {
