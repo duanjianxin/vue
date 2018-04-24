@@ -1,8 +1,8 @@
 <template>
-  <div v-if="moduleItemsModuleOne">
-    <div class="module-title">{{ moduleItemsModuleOne.moduleTitle }}</div>
+  <div v-if="datas">
+    <div class="module-title">{{ datas.moduleTitle }}</div>
     <swiper :options="swiperOption" class="ModuleOneUi">
-      <swiper-slide v-for="item in moduleItemsModuleOne.moduleItems" :key="item.ext.supplierID" class="ModuleOneLi">
+      <swiper-slide v-for="item in datas.moduleItems" :key="item.ext.supplierID" class="ModuleOneLi">
         <a href="javascript:;">
           <img :src="item.image" onerror="javascript:this.src='https://static.biyao.com/m/img/master/base/trans.png'">
         </a>
@@ -15,7 +15,9 @@
 import "swiper/dist/css/swiper.css";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
 
-import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
+// import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
+import http from "@/util/http";
+import api from "@/util/api";
 export default {
   data() {
     return {
@@ -23,11 +25,27 @@ export default {
         slidesPerView: "auto",
         loop: true,
         spaceBetween: 30
-      }
+      },
+      datas: ""
     };
   },
+  mounted() {
+    this.fetchData(); //方法2   组件内请求banners数据
+  },
   computed: {
-    ...mapGetters(["moduleItemsModuleOne"])
+    // ...mapGetters(["moduleItemsModuleOne"])
+  },
+  methods: {
+    fetchData: async function() {
+      let params = {
+        type: "1"
+      };
+      const res = await http.get(api.homeModules, params);
+      if (res.data.status == 0) {
+        this.datas = res.data.result.data[0].modules.moduleInfo;
+        // console.log(res.data.result.data[0].modules);
+      }
+    }
   },
   components: {
     swiper,

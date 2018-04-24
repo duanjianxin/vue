@@ -1,5 +1,7 @@
 import axios from "axios";
-import { Message } from "element-ui";
+import {
+  Message
+} from "element-ui";
 
 axios.defaults.timeout = 5000;
 axios.defaults.baseURL = "";
@@ -28,7 +30,9 @@ axios.interceptors.response.use(
     if (response.data.errCode == 2) {
       router.push({
         path: "/login",
-        querry: { redirect: router.currentRoute.fullPath } //从哪个页面跳转
+        querry: {
+          redirect: router.currentRoute.fullPath
+        } //从哪个页面跳转
       });
     }
     return response;

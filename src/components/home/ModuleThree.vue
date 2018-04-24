@@ -36,31 +36,36 @@
   </div>
 </template>
 <script>
-var dataJson = require("@/mockdata/home.json");
-// import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
+import http from "@/util/http";
+import api from "@/util/api";
 export default {
   data() {
     return {
       msg: "ModuleThree",
       list: [],
       loading: false,
-      finished: false
+      finished: false,
+      dataJson: []
     };
   },
   mounted() {
-    // this.onLoad();
+    this.fetchData();
   },
-  computed: {
-    // ...mapGetters([])
-  },
+  computed: {},
   methods: {
+    fetchData: async function() {
+      let params = {
+        type: "3"
+      };
+      const res = await http.get(api.homeModules, params);
+      if (res.data.status == 0) {
+        this.dataJson = res.data.result.data;
+      }
+    },
     onLoad() {
       setTimeout(() => {
-        // let dataJson=this.moduleItemsModuleThree
-        for (let index = 0; index < dataJson.modules.length; index++) {
-          if (dataJson.modules[index].moduleType == "3") {
-            this.list.push(dataJson.modules[index]);
-          }
+        for (let i = 0; i < this.dataJson.length; i++) {
+          this.list.push(this.dataJson[i].modules);
         }
         this.loading = false;
         if (this.list.length % 10 > 0) {

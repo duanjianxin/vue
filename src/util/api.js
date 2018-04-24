@@ -2,5 +2,9 @@ export default {
   home: "/home", // 首页数据
   homeBanners: "/home/banners", // 首页banner数据
   homeModules: "/home/modules", // 首页 modules数据
-  tab: "/tab" // 导航栏
+  tab: "/tab", // 导航栏
+  /*
+    分类页数据
+  */
+  categorys: "/categorys" //分类
 };

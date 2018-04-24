@@ -3,6 +3,8 @@
 </template>
 <script>
 import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
+import http from "@/util/http";
+import api from "@/util/api";
 export default {
   data() {
     return {

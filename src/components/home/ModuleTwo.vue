@@ -1,6 +1,6 @@
 <template>
-  <ul class="clear" v-if="moduleItemsModuleTwo">
-    <li v-for="item in moduleItemsModuleTwo.moduleItems" :key="item.clickType">
+  <ul class="clear" v-if="datas">
+    <li v-for="item in datas.moduleItems" :key="item.clickType">
       <router-link :to="{path:'/classify/newproductList'}">
         <img :src="item.newImageUrl" onerror="javascript:this.src='https://static.biyao.com/m/img/master/base/trans.png'">
       </router-link>
@@ -18,15 +18,33 @@
   </ul>
 </template>
 <script>
-import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
+// import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
+import http from "@/util/http";
+import api from "@/util/api";
 export default {
   data() {
     return {
-      msg: "ModuleTwo"
+      msg: "ModuleTwo",
+      datas: ""
     };
   },
+  mounted() {
+    this.fetchData(); //方法2   组件内请求banners数据
+  },
   computed: {
-    ...mapGetters(["moduleItemsModuleTwo"])
+    // ...mapGetters(["moduleItemsModuleTwo"])
+  },
+  methods: {
+    fetchData: async function() {
+      let params = {
+        type: "2"
+      };
+      const res = await http.get(api.homeModules, params);
+      if (res.data.status == 0) {
+        this.datas = res.data.result.data[0].modules.moduleInfo;
+        // console.log(res.data.result.data[0].modules);
+      }
+    }
   }
 };
 </script>

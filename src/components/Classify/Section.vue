@@ -40,7 +40,8 @@
 // require styles
 import "swiper/dist/css/swiper.css";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
-var dataJson = require("@/mockdata/category.json");
+import http from "@/util/http";
+import api from "@/util/api";
 export default {
   data() {
     return {
@@ -50,18 +51,29 @@ export default {
         spaceBetween: 0,
         freeMode: true
       },
+      dataJson: [],
       sortMenu: [],
       cateLists: {},
       categoryId: 279
     };
   },
   mounted() {
-    this.addData();
-    this.cateListData();
-    // console.log(dataJson);
+    this.fetchData();
   },
   methods: {
+    fetchData: async function() {
+      let params = {};
+      const res = await http.get(api.categorys, params);
+      if (res.data.status == 0) {
+        this.dataJson = res.data.result.data;
+        // console.log(res.data.result.data);
+        // console.log(this.dataJson);
+        this.addData();
+        this.cateListData();
+      }
+    },
     addData() {
+      let dataJson = this.dataJson;
       for (let i = 0; i < dataJson.length; i++) {
         this.sortMenu.push({
           categoryName: dataJson[i].categoryName,
@@ -70,6 +82,7 @@ export default {
       }
     },
     cateListData() {
+      let dataJson = this.dataJson;
       for (let i = 0; i < dataJson.length; i++) {
         if (dataJson[i].categoryId == this.categoryId) {
           this.cateLists = {

@@ -18,22 +18,22 @@ import api from "@/util/api";
 export default {
   data() {
     return {
-      // banners: []
+      banners: []
     };
   },
   computed: {
-    ...mapGetters(["banners"]) //方法1  vuex请求 banners数据
+    // ...mapGetters(["banners"]) //方法1  vuex请求 banners数据
   },
   mounted() {
-    // this.fetchData()//方法2   组件内请求banners数据
+    this.fetchData(); //方法2   组件内请求banners数据
   },
   methods: {
     fetchData: async function() {
       let params = {};
       const res = await http.get(api.homeBanners, params);
       if (res.data.status == 0) {
-        // this.banners = res.data.result.data;
-        console.log(res.data.result.data);
+        this.banners = res.data.result.data.banners;
+        // console.log(res.data.result.data.banners);
       }
     }
   },
