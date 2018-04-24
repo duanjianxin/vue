@@ -48,4 +48,59 @@ Router.get("/", function(req, res, next) {
   });
 });
 
+Router.get("/banners", function(req, res, next) {
+  let reqTitle = req.param("reqTitle");
+  let params = { banners: 1 };
+  // res.send(params);
+  Home.find({}, params, function(err, doc) {
+    if (err) {
+      res.json({
+        status: "1",
+        msg: err.message
+      });
+    } else {
+      res.json({
+        status: "0",
+        msg: "请求成功",
+        result: {
+          count: doc.length,
+          data: doc[0]
+        }
+      });
+      console.log(doc);
+    }
+  });
+});
+Router.get("/modules", function(req, res, next) {
+  let type = req.param("type");
+  let params = {};
+  if (type) {
+    params = [
+      { $project: { modules: "$modules" } },
+      { $unwind: "$modules" },
+      { $match: { "modules.moduleType": type } }
+    ];
+  } else {
+    params = { modules: 1 };
+  }
+  Home.aggregate(params, function(err, doc) {
+    if (err) {
+      res.json({
+        status: "1",
+        msg: err.message
+      });
+    } else {
+      res.json({
+        status: "0",
+        msg: "请求成功",
+        result: {
+          count: doc.length,
+          data: doc
+        }
+      });
+      // console.log(doc);
+    }
+  });
+});
+
 module.exports = Router;
