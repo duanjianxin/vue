@@ -13,6 +13,8 @@
 // var dataJson = require("@/mockdata/home.json");
 
 import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
+import http from "@/util/http";
+import api from "@/util/api";
 export default {
   data() {
     return {
@@ -20,12 +22,21 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["banners"])
+    ...mapGetters(["banners"]) //方法1  vuex请求 banners数据
   },
   mounted() {
-    // console.log(this.banners);
+    // this.fetchData()//方法2   组件内请求banners数据
   },
-  methods: {},
+  methods: {
+    fetchData: async function() {
+      let params = {};
+      const res = await http.get(api.homeBanners, params);
+      if (res.data.status == 0) {
+        // this.banners = res.data.result.data;
+        console.log(res.data.result.data);
+      }
+    }
+  },
   components: {}
 };
 </script>

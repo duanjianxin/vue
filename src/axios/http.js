@@ -1,5 +1,5 @@
 import axios from "axios";
-// import { Message } from "element-ui";
+import { Message } from "element-ui";
 
 axios.defaults.timeout = 5000;
 axios.defaults.baseURL = "";

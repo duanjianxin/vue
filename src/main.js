@@ -6,7 +6,8 @@ import VueRouter from "vue-router";
 import router from "./router";
 import store from "./vuex/index";
 import axios from "axios";
-import { post, fetch, patch, put } from "./axios/http";
+// import { post, fetch, patch, put } from "./axios/http";
+
 import {
   Swipe,
   SwipeItem,
@@ -26,10 +27,10 @@ import {
 Vue.config.productionTip = false;
 import "vant/lib/vant-css/index.css";
 //定义全局变量
-Vue.prototype.$post = post;
-Vue.prototype.$fetch = fetch;
-Vue.prototype.$patch = patch;
-Vue.prototype.$put = put;
+// Vue.prototype.$post = post;
+// Vue.prototype.$fetch = fetch;
+// Vue.prototype.$patch = patch;
+// Vue.prototype.$put = put;
 
 /* eslint-disable no-new */
 Vue.use(Swipe).use(SwipeItem); //Swipe 轮播

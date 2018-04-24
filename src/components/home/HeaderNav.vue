@@ -51,9 +51,11 @@
 // require styles
 import "swiper/dist/css/swiper.css";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
-// import store from "@/vuex/index";
-import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
-// var dataJson = require("@/mockdata/cateTabGuycateList.json");
+// import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
+
+import http from "@/util/http";
+import api from "@/util/api";
+
 export default {
   data() {
     return {
@@ -65,6 +67,7 @@ export default {
           clickable: true
         }
       },
+      tabs: "",
       sortMenu: [],
       subCategoryList: [],
       subitemsExpanded: false,
@@ -73,18 +76,23 @@ export default {
     };
   },
   created() {
-    this.addData();
+    this.fetchData();
   },
   mounted() {
     this.getParams();
+    this.addData();
   },
-  computed: {
-    ...mapGetters(["tabs"])
-  },
+  computed: {},
   methods: {
+    fetchData: async function() {
+      let params = {};
+      const res = await http.get(api.tab, params);
+      if (res.data.status == 0) {
+        this.tabs = res.data.result.data;
+      }
+    },
     addData() {
       let dataJson = this.tabs;
-      // console.log(dataJson.length);
       for (let i = 0; i < dataJson.length; i++) {
         this.sortMenu.push({
           categoryName: dataJson[i].categoryName,

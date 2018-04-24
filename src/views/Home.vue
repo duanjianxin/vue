@@ -35,11 +35,10 @@ export default {
   },
   created() {
     this.getHomedatas();
-    this.getTabdatas();
   },
   mounted() {},
   methods: {
-    ...mapActions(["getHomedatas", "getTabdatas"])
+    ...mapActions(["getHomedatas"])
   },
   //   组件
   components: {

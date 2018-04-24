@@ -37,7 +37,7 @@
 </template>
 <script>
 var dataJson = require("@/mockdata/home.json");
-import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
+// import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
 export default {
   data() {
     return {
@@ -51,12 +51,10 @@ export default {
     // this.onLoad();
   },
   computed: {
-    ...mapGetters(["moduleItemsModuleThree"])
+    // ...mapGetters([])
   },
   methods: {
     onLoad() {
-      console.log(this.moduleItemsModuleThree);
-
       setTimeout(() => {
         // let dataJson=this.moduleItemsModuleThree
         for (let index = 0; index < dataJson.modules.length; index++) {
