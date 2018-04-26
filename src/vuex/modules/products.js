@@ -1,3 +1,5 @@
+// 引入 axios
+import axios from "axios";
 // 商品详情
 import ProductsData from "@/mockdata/Products.json";
 // initial state
@@ -5,19 +7,21 @@ const state = {
   count: 1,
   productsData: ProductsData,
   //   默认商品价格
-  price: ProductsData.sizeDetail[0].price,
+  price: 0,
   //   默认生产周期
-  duration: ProductsData.sizeDetail[0].duration,
+  duration: 0,
   // 已选择的颜色数量 尺寸
   selectedData: {
-    selectedColor: ProductsData.suData.specs[0].des,
-    selectedSize: ProductsData.suData.specs[1].des,
+    selectedColor: "",
+    selectedSize: "",
     selectedNumb: 1
   },
   //   详情要展示的颜色 尺寸
   product: {
-    sizeList: ProductsData.sizeList,
-    suData: ProductsData.suData
+    sizeList: Object,
+    suData: Object
+    // sizeList: ProductsData.sizeList,
+    // suData: ProductsData.suData
   },
   // 是否显示地址选择
   showBase: false,
@@ -31,46 +35,51 @@ const state = {
 const getters = {};
 // actions
 const actions = {
+  getProduct({ commit }) {
+    axios.get("/products").then(data => {
+      var res = data.data;
+      if (res.status == 0) {
+        commit("GETPRODUCT", res);
+      } else {
+        Toast(res.msg);
+      }
+    });
+  },
   // 地址选择显示
-  showBasesActions({
-    commit
-  }) {
+  showBasesActions({ commit }) {
     commit("SHOWBASES");
   },
   // 地址选择隐藏
-  cancelAreaActions({
-    commit
-  }) {
+  cancelAreaActions({ commit }) {
     commit("SHOWBASES");
   },
-  confirmAreaActions({
-    commit
-  }, data) {
+  confirmAreaActions({ commit }, data) {
     commit("CONFIRMAREA", data);
   },
-  tabColorActions({
-    commit
-  }, data) {
+  tabColorActions({ commit }, data) {
     commit("TABCOLOR", data);
   },
-  tabSizeActions({
-    commit
-  }, data) {
+  tabSizeActions({ commit }, data) {
     commit("TABSIZE", data);
   },
-  additionActions({
-    commit
-  }) {
+  additionActions({ commit }) {
     commit("ADDITION");
   },
-  subtractionActions({
-    commit
-  }) {
+  subtractionActions({ commit }) {
     commit("SUBTRACTION");
   }
 };
 // mutations
 const mutations = {
+  GETPRODUCT(state, res) {
+    state.productsData = res.result.data[0];
+    state.price = res.result.data[0].sizeDetail[0].price;
+    state.duration = res.result.data[0].sizeDetail[0].duration;
+    state.selectedData.selectedColor = res.result.data[0].suData.specs[0].des;
+    state.selectedData.selectedSize = res.result.data[0].suData.specs[1].des;
+    state.product.sizeList = res.result.data[0].sizeList;
+    state.product.suData = res.result.data[0].suData;
+  },
   //定位 取消 确定
   SHOWBASES(state) {
     state.showBase = !state.showBase;

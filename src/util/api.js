@@ -6,5 +6,8 @@ export default {
   /*
     分类页数据
   */
-  categorys: "/categorys" //分类
+  categorys: "/categorys", //分类
+  productList: "/productList", //商家主页
+  products: "/products", //商品详情
+  areas: "/areas", //城市三级
 };

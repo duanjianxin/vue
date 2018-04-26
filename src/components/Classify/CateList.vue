@@ -21,9 +21,10 @@
 </template>
 <script>
 import ReturnTop from "@/components/ReturnTop";
-var dataJson = require("@/mockdata/productList.json");
+import http from "@/util/http";
+import api from "@/util/api";
 export default {
-  props:["titleShow"],
+  props: ["titleShow"],
   data() {
     return {
       msg: "CateList",
@@ -31,12 +32,15 @@ export default {
     };
   },
   mounted() {
-    this.addData();
+    this.fetchData();
   },
   methods: {
-    addData() {
-      for (let i = 0; i < dataJson[0].data.productList.length; i++) {
-        this.data.push(dataJson[0].data.productList[i]);
+    fetchData: async function() {
+      let params = {};
+      const res = await http.get(api.productList, params);
+      if (res.data.status == 0) {
+        this.data = res.data.result.data[0].productList;
+        // console.log(res.data.result.data[0].productList);
       }
     }
   }, //   组件

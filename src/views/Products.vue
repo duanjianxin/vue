@@ -170,8 +170,8 @@ import GoodsAction from "@/components/Products/GoodsAction";
 import ChooseProducts from "@/components/Products/ChooseProducts";
 import ReturnTop from "@/components/ReturnTop";
 import { Toast } from "vant";
-import areaList from "@/mockdata/area.json";
-
+import http from "@/util/http";
+import api from "@/util/api";
 export default {
   data() {
     return {
@@ -179,16 +179,29 @@ export default {
       bannerIndex: 1,
       data: this.$store.state.products.productsData,
       bannerImgs: this.$store.state.products.productsData.imgList,
-      areaLists: areaList, //省市区数据
+      areaLists: null, //省市区数据
       showProducts: false
     };
   },
+  mounted() {
+    this.getProduct();
+    this.fetchData(); //方法2   组件内请求banners数据
+  },
   methods: {
     ...mapActions([
+      "getProduct",
       "confirmAreaActions",
       "showBasesActions",
       "cancelAreaActions"
     ]),
+    fetchData: async function() {
+      let params = {};
+      const res = await http.get(api.areas, params);
+      if (res.data.status == 0) {
+        this.areaLists = res.data.result.data;
+        // console.log(res.data.result.data);
+      }
+    },
     // 当前banner下标
     onBannersChange(index) {
       this.bannerIndex = index + 1;
@@ -201,10 +214,10 @@ export default {
       this.showProducts = !this.showProducts;
     }
   },
-  mounted() {
-    // console.log(this.$store.state.products.productsData);
-    // console.log(this.$store.state.products.showBase);
-  },
+  // mounted() {
+  //   // console.log(this.$store.state.products.productsData);
+  //   // console.log(this.$store.state.products.showBase);
+  // },
   components: {
     GoodsAction,
     ReturnTop,

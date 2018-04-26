@@ -13,7 +13,7 @@ export default {
   data() {
     return {
       msg: "supplierHome",
-      childTitle: "眼镜"
+      childTitle: "大衣"
     };
   },
   mounted() {

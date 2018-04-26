@@ -5,10 +5,10 @@
       <img class="choose-size-top-img" src="https://bfs.biyao.com/group1/M00/2C/09/rBACW1pwU-KAR608AAEi1JR_7X0969_400x400.jpg" onerror="javascript:this.src='https://static.biyao.com/m/img/base/zwpic.png'" alt="">
       <div class="choose-size-title-price">
         <div class="choose-size-price-text">￥
-          <span class="choose-size-price">{{suData.price}}</span>
+          <span class="choose-size-price">{{$store.state.products.product.suData.price}}</span>
         </div>
         <div class="choose-size-duration-text">生产周期：
-          <span class="choose-size-duration">{{suData.duration}}</span>天</div>
+          <span class="choose-size-duration">{{$store.state.products.product.suData.duration}}</span>天</div>
         <div class="choose-size-choosed-style">
           <span class="choose-size-choosed-tit">已选择：</span>
           <div class="choose-size-choosed-text">{{this.$store.state.products.selectedData.selectedColor}}，{{this.$store.state.products.selectedData.selectedSize}}，{{this.$store.state.products.selectedData.selectedNumb}}件</div>
@@ -20,21 +20,21 @@
     </div>
     <div class="gl-choose-lens-content-wrap">
       <!-- 选择规格主体 -->
-      <div class="choose-size-content">
+      <div class="choose-size-content" v-if="$store.state.products.product.sizeList.normalSpecs">
         <div class="choose-title-wrap">
           <span class="lens-text">颜色</span>
           <span class="lens-choosed">（已选：
             <i class="lens-choosed-s">{{this.$store.state.products.selectedData.selectedColor}}</i>）</span>
           <div class="Specs-list">
-            <div class="specs-detial-normalSpecs" :class="{'specs-detial-checked':$store.state.products.selectedData.selectedColor==item.des}" :id="item.specsId" v-for="(item,index) in sizeList.normalSpecs[0].specs" :key="index" @click="tabColorActions({des:item.des,specsId:item.specsId})">{{item.des}}</div>
+            <div class="specs-detial-normalSpecs" :class="{'specs-detial-checked':$store.state.products.selectedData.selectedColor==item.des}" :id="item.specsId" v-for="(item,index) in $store.state.products.product.sizeList.normalSpecs[0].specs" :key="index" @click="tabColorActions({des:item.des,specsId:item.specsId})">{{item.des}}</div>
           </div>
         </div>
         <div class="choose-title-wrap">
-          <span class="lens-text">{{sizeList.normalSpecs[1].name}}</span>
+          <span class="lens-text">{{$store.state.products.product.sizeList.normalSpecs[1].name}}</span>
           <span class="lens-choosed">（已选：
             <i class="lens-choosed-s">{{this.$store.state.products.selectedData.selectedSize}}</i>）</span>
           <div class="Specs-list">
-            <div class="specs-detial-normalSpecs" :class="{'specs-detial-checked':$store.state.products.selectedData.selectedSize==item.des}" :id="item.specsId" v-for="(item,index) in sizeList.normalSpecs[1].specs" :key="index" @click="tabSizeActions({des:item.des,specsId:item.specsId})">{{item.des}}</div>
+            <div class="specs-detial-normalSpecs" :class="{'specs-detial-checked':$store.state.products.selectedData.selectedSize==item.des}" :id="item.specsId" v-for="(item,index) in $store.state.products.product.sizeList.normalSpecs[1].specs" :key="index" @click="tabSizeActions({des:item.des,specsId:item.specsId})">{{item.des}}</div>
           </div>
         </div>
         <!-- 选择数量 -->
@@ -67,18 +67,16 @@
   </div>
 </template>
 <script>
-import { mapMutations, mapActions } from "vuex";
+import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
+
 export default {
   // props: ["product", "selectedData"],
   data() {
     return {
-      msg: "ChooseProducts",
-      suData: this.$store.state.products.product.suData,
-      sizeList: this.$store.state.products.product.sizeList
+      msg: "ChooseProducts"
     };
   },
   methods: {
-    // ...mapMutations(["TABCOLOR", "TABSIZE", "ADDITION", "SUBTRACTION"]),
     ...mapActions([
       "tabColorActions",
       "tabSizeActions",
@@ -90,11 +88,7 @@ export default {
       this.$emit("showProduct");
     }
   },
-  mounted() {
-    // console.log(this.suData);
-    // console.log(this.selectedData);
-    // console.log(this.$store.state.products.product.suData);
-  }
+  mounted() {}
 };
 </script>
 
