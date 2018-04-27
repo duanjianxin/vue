@@ -111,15 +111,15 @@ export default {
       // alert(this.OldcategoryId);
       // 取到路由带过来的参数
       let routerParamsCategoryId = this.$route.query.categoryId;
-      if (this.$route.query.categoryId) {
-        // 将数据放在当前组件的数据内
-        this.categoryId = routerParamsCategoryId;
+      // 将数据放在当前组件的数据内
+      this.categoryId = routerParamsCategoryId;
+      if (this.$route.query.categoryName) {
         this.categoryName = this.$route.query.categoryName;
-        for (let i = 0; i < dataJson.length; i++) {
-          if (routerParamsCategoryId == dataJson[i].categoryId) {
-            this.subCategoryList = dataJson[i];
-            this.categoryName = dataJson[i].categoryName;
-          }
+      }
+      for (let i = 0; i < dataJson.length; i++) {
+        if (routerParamsCategoryId == dataJson[i].categoryId) {
+          this.subCategoryList = dataJson[i];
+          this.categoryName = dataJson[i].categoryName;
         }
       }
     },
