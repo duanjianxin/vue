@@ -6,12 +6,19 @@ var logger = require("morgan");
 var ejs = require("ejs");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
+// 主页
 var homeRouter = require("./routes/home");
+// nav
 var tabRouter = require("./routes/tab");
 var categorysRouter = require("./routes/categorys");
+// 商品列表
 var productListRouter = require("./routes/productList");
+//商品详情
 var productsRouter = require("./routes/products");
+// 省市区
 var areasRouter = require("./routes/areas");
+// 新品列表
+var newproductRouter = require("./routes/newproduct");
 
 var app = express();
 
@@ -39,14 +46,15 @@ app.use("/api/categorys", categorysRouter);
 app.use("/api/productList", productListRouter);
 app.use("/api/products", productsRouter);
 app.use("/api/areas", areasRouter);
+app.use("/api/newproduct", newproductRouter);
 
 // catch 404 and forward to error handler
-app.use(function (req, res, next) {
+app.use(function(req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function (err, req, res, next) {
+app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
