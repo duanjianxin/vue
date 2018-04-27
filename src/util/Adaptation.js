@@ -16,7 +16,7 @@
     p = 0,
     c = t.flexible || (t.flexible = {});
   if (o) {
-    console.warn("将根据已有的meta标签来设置缩放比例");
+    // console.warn("将根据已有的meta标签来设置缩放比例");
     var u = o.getAttribute("content").match(/initial\-scale=([\d\.]+)/);
     u && ((p = parseFloat(u[1])), (d = parseInt(1 / p)));
   } else if (m) {

@@ -5,9 +5,9 @@
         <swiper-slide class="content ">
           <router-link :to="{path:'/'}">推荐</router-link>
         </swiper-slide>
-        <swiper-slide v-for="(item,index) in this.tabs" :key="index" class="content" :class="{'nav-active':categoryName===item.categoryName}">
+        <swiper-slide v-for="(item,index) in this.tabs" :key="index" class="content" :class="{'nav-active':categoryName==item.categoryName}">
           <router-link :to="{path:'/classify/oldClassify',query: {
-            categoryId: item.categoryId}}">
+            categoryId: item.categoryId,categoryName:item.categoryName}}">
             {{item.categoryName}}
           </router-link>
         </swiper-slide>
@@ -26,7 +26,7 @@
           </li>
           <li class="" :class="{'_active':categoryId===item.categoryId}" v-for="(item,index) in this.tabs" :key="index">
             <router-link :to="{path:'/classify/oldClassify',query: {
-            categoryId: item.categoryId}}" v-on:click.native="subitemsExpanded=!subitemsExpanded">
+            categoryId: item.categoryId,categoryName:item.categoryName}}" v-on:click.native="subitemsExpanded=!subitemsExpanded">
               {{item.categoryName}}
             </router-link>
           </li>
@@ -71,7 +71,7 @@ export default {
       sortMenu: [],
       subCategoryList: [],
       subitemsExpanded: false,
-      categoryId: "0", //当前路由id
+      categoryId: "", //当前路由id
       categoryName: "" //当前类名
     };
   },
@@ -106,15 +106,20 @@ export default {
     },
     getParams() {
       let dataJson = this.tabs;
-      this.OldcategoryId = this.categoryId;
+      // console.log(this.$route.query.categoryId);
+      // this.OldcategoryId = this.categoryId;
+      // alert(this.OldcategoryId);
       // 取到路由带过来的参数
       let routerParamsCategoryId = this.$route.query.categoryId;
-      // 将数据放在当前组件的数据内
-      this.categoryId = routerParamsCategoryId;
-      for (let i = 0; i < dataJson.length; i++) {
-        if (routerParamsCategoryId == dataJson[i].categoryId) {
-          this.subCategoryList = dataJson[i];
-          this.categoryName = dataJson[i].categoryName;
+      if (this.$route.query.categoryId) {
+        // 将数据放在当前组件的数据内
+        this.categoryId = routerParamsCategoryId;
+        this.categoryName = this.$route.query.categoryName;
+        for (let i = 0; i < dataJson.length; i++) {
+          if (routerParamsCategoryId == dataJson[i].categoryId) {
+            this.subCategoryList = dataJson[i];
+            this.categoryName = dataJson[i].categoryName;
+          }
         }
       }
     },
