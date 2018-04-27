@@ -2,14 +2,19 @@
   <van-goods-action>
     <van-goods-action-mini-btn icon="chat" text="客服" @click="onClickMiniBtn" />
     <van-goods-action-mini-btn icon="cart" text="购物车" @click="onClickMiniBtn" />
-    <van-goods-action-big-btn text="加入购物车" @click="onClickBigBtn" class="buy-shopcar" />
-    <van-goods-action-big-btn text="立即购买" @click="onClickBigBtn" primary class="buy-now" />
+    <van-goods-action-big-btn text="加入购物车" @click="buyShopcarSureBtnActions" class="buy-shopcar" />
+    <van-goods-action-big-btn text="立即购买" @click="buyNowSureBtnActions" primary class="buy-now" />
   </van-goods-action>
 </template>
 <script>
 import { Toast } from "vant";
+import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
 export default {
   methods: {
+    ...mapActions([
+      "buyShopcarSureBtnActions",
+      "buyNowSureBtnActions"
+    ]),
     onClickMiniBtn() {
       Toast("点击图标");
     },

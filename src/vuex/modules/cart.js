@@ -6,6 +6,9 @@ import { Dialog } from "vant"; //弹出框
 // initial state
 const state = {
   count: 1,
+
+
+  /* 购物车数据 */
   ShopcarData: ShopcarData,
   // 是否是空购物车 true为空
   Emptylist: ShopcarData.packageList,

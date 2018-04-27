@@ -56,13 +56,13 @@
     <!-- 底部按钮 -->
     <div class="choose-size-bottom">
       <ul class="choose-bottom-btn-wrap choose-bootom-btn-con">
-        <li class="buy-shopcar-choose">加入购物车</li>
-        <li class="buy-now-choose">立即购买</li>
+        <li class="buy-shopcar-choose" @click="buyShopcarChoose" v-show="buyShopcarBtn">加入购物车</li>
+        <li class="buy-now-choose" @click="buyNowChoose" v-show="buyNowBtn">立即购买</li>
         <li class="no-store-btn none">原材料库存不足</li>
         <li class="give-red-bag none">送好友</li>
       </ul>
-      <div class="buy-shopcar-choose-sure none">确定</div>
-      <div class="buy-now-choose-sure none">确定</div>
+      <div class="buy-shopcar-choose-sure " @click="buyShopcarSure" v-show="buyShopcarSureBtn">确定</div>
+      <div class="buy-now-choose-sure " @click="buyNowSure" v-show="buyNowSureBtn">确定</div>
     </div>
   </div>
 </template>
@@ -76,6 +76,19 @@ export default {
       msg: "ChooseProducts"
     };
   },
+  mounted() {},
+  computed: {
+    ...mapState({
+      // 加入购物车按钮
+      buyShopcarBtn: state => state.products.buyShopcarBtn,
+      // 立即购买按钮
+      buyNowBtn: state => state.products.buyNowBtn,
+      // 加入购物车内确定按钮
+      buyShopcarSureBtn: state => state.products.buyShopcarSureBtn,
+      // 立即购买内确定按钮
+      buyNowSureBtn: state => state.products.buyNowSureBtn
+    })
+  },
   methods: {
     ...mapActions([
       "tabColorActions",
@@ -86,9 +99,24 @@ export default {
     // 点击叉叉调用父组件方法
     closedBtn() {
       this.$emit("showProduct");
+    },
+    // 点击购买
+    buyNowChoose() {
+      alert("点击购买");
+    },
+    // 点击购物车
+    buyShopcarChoose() {
+      alert("点击购物车");
+    },
+    // 点击添加购物车的确定
+    buyShopcarSure() {
+      alert("点击添加购物车的确定");
+    },
+    // 点击立即购买的确定
+    buyNowSure() {
+      alert("点击立即购买的确定");
     }
-  },
-  mounted() {}
+  }
 };
 </script>
 

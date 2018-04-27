@@ -16,6 +16,18 @@ const state = {
     selectedSize: "",
     selectedNumb: 1
   },
+
+  // 是否显示颜色选择框
+  showProducts: false,
+  // 加入购物车按钮
+  buyShopcarBtn: true,
+  // 立即购买按钮
+  buyNowBtn: true,
+  // 加入购物车内确定按钮
+  buyShopcarSureBtn: false,
+  // 立即购买内确定按钮
+  buyNowSureBtn: false,
+
   //   详情要展示的颜色 尺寸
   product: {
     sizeList: Object,
@@ -44,6 +56,16 @@ const actions = {
         Toast(res.msg);
       }
     });
+  },
+  // 已选择 显示 隐藏
+  showProductActions({ commit }) {
+    commit("SHOWPRODUCTS");
+  },
+  buyShopcarSureBtnActions({ commit }) {
+    commit("BUYSHOPCARSUREBTN");
+  },
+  buyNowSureBtnActions({ commit }) {
+    commit("BUYNOWSUREBTN");
   },
   // 地址选择显示
   showBasesActions({ commit }) {
@@ -80,6 +102,43 @@ const mutations = {
     state.product.sizeList = res.result.data[0].sizeList;
     state.product.suData = res.result.data[0].suData;
   },
+  // 已选择 显示 隐藏
+  SHOWPRODUCTS(state) {
+    state.showProducts = !state.showProducts;
+    // 加入购物车按钮
+    state.buyShopcarBtn = true;
+    // 立即购买按钮
+    state.buyNowBtn = true;
+    // 加入购物车内确定按钮
+    state.buyShopcarSureBtn = false;
+    // 立即购买内确定按钮
+    state.buyNowSureBtn = false;
+  },
+
+  //加入购物车按钮
+  BUYSHOPCARSUREBTN(state) {
+    state.showProducts = true;
+    // 加入购物车按钮
+    state.buyShopcarBtn = false;
+    // 立即购买按钮
+    state.buyNowBtn = false;
+    // 加入购物车内确定按钮
+    state.buyShopcarSureBtn = true;
+    // 立即购买内确定按钮
+    state.buyNowSureBtn = false;
+  },
+  // 立即购买按钮
+  BUYNOWSUREBTN(state) {
+    state.showProducts = true;
+    // 加入购物车按钮
+    state.buyShopcarBtn = false;
+    // 立即购买按钮
+    state.buyNowBtn = false;
+    // 加入购物车内确定按钮
+    state.buyShopcarSureBtn = false;
+    // 立即购买内确定按钮
+    state.buyNowSureBtn = true;
+  },
   //定位 取消 确定
   SHOWBASES(state) {
     state.showBase = !state.showBase;
@@ -99,6 +158,7 @@ const mutations = {
   TABCOLOR(state, data) {
     state.selectedData.selectedColor = data.des;
   },
+
   // 尺寸选择
   TABSIZE(state, data) {
     state.selectedData.selectedSize = data.des;

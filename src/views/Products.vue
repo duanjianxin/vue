@@ -92,7 +92,7 @@
 
           </section>
           <!-- 已选规格 -->
-          <section class="gl-range-warp choosed-size-wrap" @click="showProduct">
+          <section class="gl-range-warp choosed-size-wrap" @click="showProductActions">
             <div class="standard">
               <span>已选择：&nbsp;</span>
               <div class="choosed-size-Exhibition">{{this.$store.state.products.selectedData.selectedColor}}，{{this.$store.state.products.selectedData.selectedSize}}，{{this.$store.state.products.selectedData.selectedNumb}}件</div>
@@ -158,14 +158,14 @@
       <van-area :area-list="areaLists" @confirm="confirmAreaActions" @cancel="cancelAreaActions" />
     </van-popup>
     <ReturnTop></ReturnTop>
-    <van-popup v-model="showProducts" position="bottom">
-      <ChooseProducts @showProduct="showProduct"></ChooseProducts>
+    <van-popup v-model="$store.state.products.showProducts" position="bottom">
+      <ChooseProducts @showProduct="showProductActions"></ChooseProducts>
     </van-popup>
   </div>
 </template>
 <script>
 import store from "@/vuex/index";
-import { mapMutations, mapActions } from "vuex";
+import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
 import GoodsAction from "@/components/Products/GoodsAction";
 import ChooseProducts from "@/components/Products/ChooseProducts";
 import ReturnTop from "@/components/ReturnTop";
@@ -179,8 +179,7 @@ export default {
       bannerIndex: 1,
       data: this.$store.state.products.productsData,
       bannerImgs: this.$store.state.products.productsData.imgList,
-      areaLists: null, //省市区数据
-      showProducts: false
+      areaLists: null //省市区数据
     };
   },
   mounted() {
@@ -192,6 +191,7 @@ export default {
     ...mapActions([
       "getProduct",
       "confirmAreaActions",
+      "showProductActions",
       "showBasesActions",
       "cancelAreaActions"
     ]),
@@ -200,7 +200,6 @@ export default {
       const res = await http.get(api.areas, params);
       if (res.data.status == 0) {
         this.areaLists = res.data.result.data;
-        // console.log(res.data.result.data);
       }
     },
     // 当前banner下标
@@ -210,9 +209,6 @@ export default {
     // 尺码对照表显示隐藏
     sizeForm() {
       this.showSizeForm = !this.showSizeForm;
-    },
-    showProduct() {
-      this.showProducts = !this.showProducts;
     }
   },
   // mounted() {
