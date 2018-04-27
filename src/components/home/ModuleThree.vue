@@ -5,23 +5,17 @@
         <router-link :to="{path:'/classify/categoryList'}" class="hidden">
           <div class="module-title">
             {{item.moduleInfo.moduleTitle}}
-            <span>
-              <svg class="icon module-title-icon" aria-hidden="true">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-right"></use>
-              </svg>
-            </span>
           </div>
         </router-link>
         <div class="product-brand clear">
-          <router-link :to="{path:'/classify/categoryList'}" class="hidden">
+          <router-link :to="{path:'/classify/categoryList',query: {
+            supplierId:item.moduleInfo.moduleItems[0].ext.supplierID }}" class="hidden">
             <img v-lazy="item.moduleInfo.moduleImage" onerror="javascript:this.src='https://static.biyao.com/m/img/master/base/trans.png'">
             <p>
               <span>{{item.moduleInfo.manufacturers}}<br>{{item.moduleInfo.moduleBrand}}</span>
             </p>
           </router-link>
         </div>
-        <hr>
-
         <ul class="product-list clear">
           <li v-for="(moduleItem,index) in item.moduleInfo.moduleItems" :key="index">
             <router-link :to="{path:'/products',query: {

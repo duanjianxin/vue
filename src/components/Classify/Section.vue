@@ -11,7 +11,8 @@
     <div class="section-cateList">
       <ul>
         <li class="cateList-first">
-          <router-link :to="{path:'/classify/middlePage'}" class="top-banner">
+          <router-link :to="{path:'/classify/middlePage',query: {
+            categoryId: cateLists.categoryImage.ext.categoryID }}" class="top-banner">
             <img :src="cateLists.categoryImage.imageUrl" v-if="cateLists.categoryImage" onerror="javascript:this.src='https://static.biyao.com/m/img/master/base/trans.png'">
           </router-link>
           <ul>
@@ -19,14 +20,15 @@
               <div class="list-hd">{{item.categoryName}}</div>
               <ul class="clear">
                 <li class="cateList-third" v-for="(third,index) in item.subCategoryList" :key="index">
-                  <a href="javascript:;">
+                  <router-link :to="{path:'/classify/middlePage',query: {
+            categoryId:third.categoryId }}">
                     <dl>
                       <dt>
                         <img :src="third.imageUrl" onerror="javascript:this.src='https://static.biyao.com/m/img/master/base/trans.png'">
                       </dt>
                       <dd>{{third.categoryName}}</dd>
                     </dl>
-                  </a>
+                  </router-link>
                 </li>
               </ul>
             </li>

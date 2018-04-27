@@ -5,13 +5,14 @@
         <p v-if="titleShow">{{item.categoryName}}</p>
         <ul class="section-proList clear">
           <li v-for="(proList,proListindex) in item.item" :key="proListindex">
-            <a href="javascript:;">
+            <router-link :to="{path:'/products',query: {
+            suId: proList.suId }}">
               <img :src="proList.imageUrl" onerror="javascript:this.src='https://static.biyao.com/m/img/master/base/trans.png'">
               <dl>
                 <dt class="escp">{{proList.title}}</dt>
                 <dd>￥{{proList.price}}</dd>
               </dl>
-            </a>
+            </router-link>
           </li>
         </ul>
       </li>

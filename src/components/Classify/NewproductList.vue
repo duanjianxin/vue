@@ -5,7 +5,8 @@
         <div class="product-show-title">{{item.saleTime}}</div>
       </div>
       <div class="new-product-list">
-        <router-link :to="{path:'/'}" v-for="(item2,index2) in item.item" :key="index2">
+        <router-link :to="{path:'/products',query: {
+            productId: item2.productId }}" v-for="(item2,index2) in item.item" :key="index2">
           <div class="new-product-item first">
             <div class="product-pic">
               <img class="lazy" :src="item2.imageUrl" onerror="javascript:this.src='https://static.biyao.com/m/img/master/base/trans.png'">

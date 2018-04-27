@@ -2,7 +2,8 @@
   <div class="banner">
     <van-swipe :autoplay="3000">
       <van-swipe-item v-for="(image, index) in banners" :key="index" class="img-warp">
-        <router-link :to="{path:'/classify/supplierHome'}">
+        <router-link :to="{path:'/classify/supplierHome',query: {
+            suId: image.ext.supplierID }}">
           <img v-lazy="image.image" class="img-box" />
         </router-link>
       </van-swipe-item>
