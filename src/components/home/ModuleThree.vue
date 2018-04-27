@@ -20,15 +20,18 @@
             </p>
           </router-link>
         </div>
+        <hr>
+
         <ul class="product-list clear">
           <li v-for="(moduleItem,index) in item.moduleInfo.moduleItems" :key="index">
-            <a href="javascript:;">
+            <router-link :to="{path:'/products',query: {
+            suId: moduleItem.ext.suId }}">
               <img v-lazy="moduleItem.image" onerror="javascript:this.src='https://static.biyao.com/m/img/master/base/trans.png'">
               <dl>
                 <dt class="escp">{{moduleItem.ext.itemName}}</dt>
                 <dd>¥{{moduleItem.ext.itemPrice}}</dd>
               </dl>
-            </a>
+            </router-link>
           </li>
         </ul>
       </div>

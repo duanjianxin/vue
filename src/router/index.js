@@ -91,7 +91,7 @@ export default new Router({
     {
       // 商品详情
       path: "/products",
-      name: "Products",
+      name: "products",
       component: Products
     },
     {

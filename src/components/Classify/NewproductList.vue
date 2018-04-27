@@ -1,36 +1,46 @@
 <template>
-    <div class="container">
-        <div v-for="(item,index) in datajson.productList" :key="index">
-            <div class="show-product-head">
-                <div class="product-show-title">{{item.saleTime}}</div>
+  <div class="container">
+    <div v-for="(item,index) in datajson.productList" :key="index">
+      <div class="show-product-head">
+        <div class="product-show-title">{{item.saleTime}}</div>
+      </div>
+      <div class="new-product-list">
+        <router-link :to="{path:'/'}" v-for="(item2,index2) in item.item" :key="index2">
+          <div class="new-product-item first">
+            <div class="product-pic">
+              <img class="lazy" :src="item2.imageUrl" onerror="javascript:this.src='https://static.biyao.com/m/img/master/base/trans.png'">
             </div>
-            <div class="new-product-list">
-                <router-link :to="{path:'/'}" v-for="(item2,index2) in item.item" :key="index2">
-                    <div class="new-product-item first">
-                        <div class="product-pic">
-                            <img class="lazy" :src="item2.imageUrl" onerror="javascript:this.src='https://static.biyao.com/m/img/master/base/trans.png'">
-                        </div>
-                        <div class="product-name">{{item2.title}}</div>
-                        <div class="product-dec">{{item2.salePoint}}</div>
-                        <div class="product-price">￥
-                            <span>{{item2.price}}</span>
-                        </div>
-                    </div>
-                </router-link>
+            <div class="product-name">{{item2.title}}</div>
+            <div class="product-dec">{{item2.salePoint}}</div>
+            <div class="product-price">￥
+              <span>{{item2.price}}</span>
             </div>
-        </div>
+          </div>
+        </router-link>
+      </div>
     </div>
+  </div>
 </template>
 <script>
-var dataJson = require("@/mockdata/NewproductList.json");
+import http from "@/util/http";
+import api from "@/util/api";
 export default {
   data() {
     return {
-      datajson: dataJson
+      datajson: ""
     };
   },
   mounted() {
-    // console.log(dataJson);
+    this.fetchData();
+  },
+  methods: {
+    fetchData: async function() {
+      let params = {};
+      const res = await http.get(api.newproduct, params);
+      if (res.data.status == 0) {
+        this.datajson = res.data.result.data;
+      }
+    }
   }
 };
 </script>

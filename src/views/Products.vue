@@ -184,6 +184,7 @@ export default {
     };
   },
   mounted() {
+    document.documentElement.scrollTop = document.body.scrollTop = 0;
     this.getProduct();
     this.fetchData(); //方法2   组件内请求banners数据
   },
