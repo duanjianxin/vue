@@ -11,10 +11,7 @@ import { Toast } from "vant";
 import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
 export default {
   methods: {
-    ...mapActions([
-      "buyShopcarSureBtnActions",
-      "buyNowSureBtnActions"
-    ]),
+    ...mapActions(["buyShopcarSureBtnActions", "buyNowSureBtnActions"]),
     onClickMiniBtn() {
       Toast("点击图标");
     },
@@ -29,11 +26,11 @@ export default {
 .buy-shopcar {
   font-family: PingFang-SC-Medium;
   color: #fff;
-  background-color: #e7b32b;
+  background-color: #e7b32b !important;
 }
 .buy-now,
 .buy-now-choose {
   color: #fff;
-  background-color: #7e4395;
+  background-color: #7e4395 !important;
 }
 </style>

@@ -22,8 +22,8 @@
 </template>
 <script>
 import ReturnTop from "@/components/ReturnTop";
-import http from "@/util/http";
-import api from "@/util/api";
+import http from "@/assets/util/http";
+import api from "@/assets/util/api";
 export default {
   props: ["titleShow"],
   data() {

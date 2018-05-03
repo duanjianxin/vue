@@ -12,7 +12,7 @@
       <ul>
         <li class="cateList-first">
           <router-link :to="{path:'/classify/middlePage',query: {
-            categoryId: cateLists.categoryImage.ext.categoryID }}" class="top-banner">
+            categoryId: cateLists.categoryId }}" class="top-banner">
             <img :src="cateLists.categoryImage.imageUrl" v-if="cateLists.categoryImage" onerror="javascript:this.src='https://static.biyao.com/m/img/master/base/trans.png'">
           </router-link>
           <ul>
@@ -42,8 +42,8 @@
 // require styles
 import "swiper/dist/css/swiper.css";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
-import http from "@/util/http";
-import api from "@/util/api";
+import http from "@/assets/util/http";
+import api from "@/assets/util/api";
 export default {
   data() {
     return {

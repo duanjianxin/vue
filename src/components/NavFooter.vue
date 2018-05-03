@@ -39,7 +39,7 @@ export default {
   methods: {}
 };
 </script>
-<style>
+<style  lang="scss" scoped="" type="text/css">
 .footer {
   width: 100%;
   margin-right: auto;

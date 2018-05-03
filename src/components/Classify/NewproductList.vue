@@ -23,8 +23,8 @@
   </div>
 </template>
 <script>
-import http from "@/util/http";
-import api from "@/util/api";
+import http from "@/assets/util/http";
+import api from "@/assets/util/api";
 export default {
   data() {
     return {

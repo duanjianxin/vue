@@ -170,8 +170,8 @@ import GoodsAction from "@/components/Products/GoodsAction";
 import ChooseProducts from "@/components/Products/ChooseProducts";
 import ReturnTop from "@/components/ReturnTop";
 import { Toast } from "vant";
-import http from "@/util/http";
-import api from "@/util/api";
+import http from "@/assets/util/http";
+import api from "@/assets/util/api";
 export default {
   data() {
     return {

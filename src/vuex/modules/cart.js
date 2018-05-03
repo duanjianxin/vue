@@ -1,5 +1,5 @@
 // 商品详情
-import ShopcarData from "@/mockdata/Shopcar.json";
+import ShopcarData from "@/assets/mockdata/Shopcar.json";
 // 方法二
 // import Vue from "vue";
 import { Dialog } from "vant"; //弹出框

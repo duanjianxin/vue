@@ -1,7 +1,7 @@
 // 引入 axios
 import axios from "axios";
 // 商品详情
-import ProductsData from "@/mockdata/Products.json";
+import ProductsData from "@/assets/mockdata/Products.json";
 // initial state
 const state = {
   count: 1,

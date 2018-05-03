@@ -13,7 +13,7 @@
   </div>
 </template>
 <script>
-import "@/util/Adaptation.js";
+import "@/assets/util/Adaptation.js";
 import Search from "@/components/Search";
 import HeaderNav from "@/components/home/HeaderNav";
 import Banner from "@/components/home/Banner";
